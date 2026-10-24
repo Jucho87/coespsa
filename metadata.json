@@ -1,0 +1,6 @@
+{
+  "name": "COESPSA C.I. S.A.S. - Portal Corporativo y Administrativo",
+  "description": "Portal corporativo y administrativo de COESPSA C.I. S.A.S. - Ingeniería Civil, Mecánica, Transporte Pesado y Naval con desguace y reciclaje sostenible de buques, monitoreo satelital y gestión administrativa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

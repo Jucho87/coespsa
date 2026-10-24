@@ -1,0 +1,479 @@
+import React from 'react';
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Send, 
+  CheckCircle2, 
+  Clock, 
+  ShieldCheck, 
+  AlertCircle,
+  Headphones,
+  RotateCcw
+} from 'lucide-react';
+import { COMPANY_INFO } from '../data/companyData';
+import { ContactSubmission } from '../types';
+
+interface ContactSectionProps {
+  onNewSubmission: (submission: ContactSubmission) => void;
+  preselectedDivision?: ContactSubmission['targetDivision'];
+  preselectedService?: ContactSubmission['serviceCategory'];
+}
+
+export const ContactSection: React.FC<ContactSectionProps> = ({
+  onNewSubmission,
+  preselectedDivision = 'transporte',
+  preselectedService = 'civil'
+}) => {
+  const [formData, setFormData] = React.useState({
+    companyName: '',
+    contactPerson: '',
+    documentId: '',
+    email: '',
+    phone: '',
+    city: 'Bogotá D.C., Colombia',
+    targetDivision: preselectedDivision,
+    serviceCategory: preselectedService,
+    priority: 'media' as ContactSubmission['priority'],
+    message: '',
+    termsAccepted: true
+  });
+
+  const [submittedRadicado, setSubmittedRadicado] = React.useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+  React.useEffect(() => {
+    if (preselectedDivision) {
+      setFormData(prev => ({ ...prev, targetDivision: preselectedDivision }));
+    }
+  }, [preselectedDivision]);
+
+  React.useEffect(() => {
+    if (preselectedService) {
+      setFormData(prev => ({ ...prev, serviceCategory: preselectedService }));
+    }
+  }, [preselectedService]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMessage(null);
+
+    if (!formData.companyName.trim() || !formData.contactPerson.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()) {
+      setErrorMessage('Por favor complete los campos obligatorios para radicar su requerimiento corporativo.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    setTimeout(() => {
+      const radicadoNum = `RAD-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+      const now = new Date();
+      const formattedDate = `${now.toLocaleDateString('es-CO')} ${now.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' })}`;
+
+      const newEntry: ContactSubmission = {
+        id: radicadoNum,
+        timestamp: formattedDate,
+        companyName: formData.companyName,
+        contactPerson: formData.contactPerson,
+        documentId: formData.documentId || 'No aportado',
+        email: formData.email,
+        phone: formData.phone,
+        city: formData.city,
+        targetDivision: formData.targetDivision,
+        serviceCategory: formData.serviceCategory,
+        message: formData.message,
+        status: 'nuevo',
+        priority: formData.priority
+      };
+
+      onNewSubmission(newEntry);
+      setSubmittedRadicado(radicadoNum);
+      setIsSubmitting(false);
+    }, 500);
+  };
+
+  const handleResetForm = () => {
+    setSubmittedRadicado(null);
+    setFormData({
+      companyName: '',
+      contactPerson: '',
+      documentId: '',
+      email: '',
+      phone: '',
+      city: 'Bogotá D.C., Colombia',
+      targetDivision: 'transporte',
+      serviceCategory: 'civil',
+      priority: 'media',
+      message: '',
+      termsAccepted: true
+    });
+  };
+
+  return (
+    <section id="contacto" className="py-20 bg-white border-b border-slate-200 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
+            <Headphones className="w-3.5 h-3.5" />
+            <span>Atención Institucional & Cotizaciones</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight font-heading">
+            Contáctenos y Radicación de Proyectos
+          </h2>
+          <p className="text-slate-600 text-base mt-2 max-w-2xl">
+            Comuníquese directamente con nuestras 4 gerencias corporativas en Bogotá D.C. Nuestro equipo 
+            técnico evalúa requerimientos de obra civil, transporte especializado y desguace naval en menos de 24 horas.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Official Contact Card & PBX Lines */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm space-y-6">
+              <div>
+                <span className="text-xs uppercase font-bold tracking-wider text-blue-700 block mb-1">
+                  Sede Principal Corporativa
+                </span>
+                <h3 className="text-xl font-bold text-slate-950 font-heading">
+                  COESPSA C.I. S.A.S.
+                </h3>
+                <p className="text-xs text-slate-500 mt-1">
+                  Company Structural Engineering Civil, Mechanical and Naval C.I. S.A.S.
+                </p>
+              </div>
+
+              {/* Contact Items */}
+              <div className="space-y-3.5 text-xs sm:text-sm">
+                {/* PBX 1 */}
+                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                  <div className="p-2.5 rounded-lg bg-blue-50 text-blue-700 shrink-0">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] text-slate-500 block font-medium">Línea PBX Conmutador Principal</span>
+                    <a href={`tel:${COMPANY_INFO.pbx1.replace(/[^0-9]/g, '')}`} className="text-slate-950 font-bold hover:text-blue-700 transition-colors text-sm">
+                      {COMPANY_INFO.pbx1}
+                    </a>
+                  </div>
+                </div>
+
+                {/* PBX 2 */}
+                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                  <div className="p-2.5 rounded-lg bg-blue-50 text-blue-700 shrink-0">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] text-slate-500 block font-medium">Línea PBX Secundaria</span>
+                    <a href={`tel:${COMPANY_INFO.pbx2.replace(/[^0-9]/g, '')}`} className="text-slate-950 font-bold hover:text-blue-700 transition-colors text-sm">
+                      {COMPANY_INFO.pbx2}
+                    </a>
+                  </div>
+                </div>
+
+                {/* Email Customer Service */}
+                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                  <div className="p-2.5 rounded-lg bg-sky-50 text-sky-700 shrink-0">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] text-slate-500 block font-medium">Servicio al Cliente & Cotizaciones</span>
+                    <a href={`mailto:${COMPANY_INFO.emailCustomerService}`} className="text-blue-700 font-bold hover:underline break-all text-xs">
+                      {COMPANY_INFO.emailCustomerService}
+                    </a>
+                  </div>
+                </div>
+
+                {/* Email Management */}
+                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                  <div className="p-2.5 rounded-lg bg-amber-50 text-amber-700 shrink-0">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] text-slate-500 block font-medium">Gerencia General & Contratos</span>
+                    <a href={`mailto:${COMPANY_INFO.emailManagement}`} className="text-slate-900 font-bold hover:underline break-all text-xs">
+                      {COMPANY_INFO.emailManagement}
+                    </a>
+                  </div>
+                </div>
+
+                {/* Location */}
+                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                  <div className="p-2.5 rounded-lg bg-slate-100 text-slate-700 shrink-0">
+                    <MapPin className="w-4 h-4 text-blue-600" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] text-slate-500 block font-medium">Domicilio y Operaciones</span>
+                    <span className="text-slate-900 font-bold text-xs">
+                      {COMPANY_INFO.headquarters}
+                    </span>
+                    <span className="block text-[11px] text-slate-500 mt-0.5">
+                      Patios Fontibón & Terminales Portuarias Aliadas
+                    </span>
+                  </div>
+                </div>
+
+                {/* Working hours */}
+                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                  <div className="p-2.5 rounded-lg bg-emerald-50 text-emerald-700 shrink-0">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] text-slate-500 block font-medium">Horarios de Atención Administrativa</span>
+                    <span className="text-slate-800 text-xs font-semibold">
+                      Lunes a Viernes: 07:30 - 18:00 • Sábados: 08:00 - 13:00
+                    </span>
+                    <span className="block text-[11px] text-emerald-700 font-semibold mt-0.5">
+                      Centro de Control Satelital: Operación 24/7/365
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Safety badge */}
+              <div className="p-3.5 rounded-xl bg-blue-50 border border-blue-200 flex items-center gap-3 text-xs text-blue-900 font-medium">
+                <ShieldCheck className="w-5 h-5 text-blue-600 shrink-0" />
+                <span>
+                  Tratamiento confidencial de propuestas y cumplimiento de la Ley de Protección de Datos (Habeas Data).
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Form or Success */}
+          <div className="lg:col-span-7">
+            {submittedRadicado ? (
+              <div className="p-8 sm:p-10 rounded-2xl bg-white border border-emerald-300 shadow-lg space-y-6 text-center animate-in zoom-in-95 duration-200">
+                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+
+                <div>
+                  <span className="text-xs font-bold uppercase text-emerald-700 block mb-1">
+                    Solicitud Radicada Exitosamente
+                  </span>
+                  <h3 className="text-2xl font-extrabold text-slate-950 font-heading">
+                    Número de Radicado: <span className="text-blue-700 font-mono">{submittedRadicado}</span>
+                  </h3>
+                  <p className="text-slate-600 text-sm mt-3 max-w-lg mx-auto leading-relaxed">
+                    Hemos registrado su requerimiento en el sistema de gestión corporativa de COESPSA C.I. S.A.S. 
+                    La gerencia correspondiente revisará las especificaciones técnicas y se pondrá en contacto en un plazo máximo de 24 horas.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 max-w-md mx-auto text-left text-xs space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-slate-500 font-medium">Razón Social:</span>
+                    <span className="text-slate-900 font-bold">{formData.companyName}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500 font-medium">Gerencia Asignada:</span>
+                    <span className="text-blue-700 font-bold capitalize">{formData.targetDivision}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500 font-medium">Correo de Confirmación:</span>
+                    <span className="text-slate-900 font-semibold">{formData.email}</span>
+                  </div>
+                </div>
+
+                <div className="pt-4 flex justify-center">
+                  <button
+                    onClick={handleResetForm}
+                    className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-md transition-all"
+                  >
+                    <RotateCcw className="w-4 h-4" />
+                    <span>Radicar Otra Consulta</span>
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <form 
+                onSubmit={handleSubmit}
+                className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-md space-y-5"
+              >
+                <div>
+                  <h3 className="text-xl font-bold text-slate-950 mb-1 font-heading">
+                    Formulario Oficial de Requerimientos Corporativos
+                  </h3>
+                  <p className="text-xs text-slate-500">
+                    Diligencie el alcance de su cotización o consulta técnica para ser enrutada al área respectiva.
+                  </p>
+                </div>
+
+                {errorMessage && (
+                  <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs flex items-center gap-2 font-medium">
+                    <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
+                {/* Company & Person */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Empresa o Razón Social <span className="text-blue-600">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Ej: Consorcio Minero Andino S.A."
+                      value={formData.companyName}
+                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Persona de Contacto y Cargo <span className="text-blue-600">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Ej: Ing. Carlos Rivas (Dir. Operaciones)"
+                      value={formData.contactPerson}
+                      onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium"
+                    />
+                  </div>
+                </div>
+
+                {/* Document & Email */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      NIT / Documento de Identidad
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Ej: 900.123.456-7"
+                      value={formData.documentId}
+                      onChange={(e) => setFormData({ ...formData, documentId: e.target.value })}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Correo Electrónico Corporativo <span className="text-blue-600">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="contacto@suempresa.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium"
+                    />
+                  </div>
+                </div>
+
+                {/* Phone & City */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Teléfono / Móvil de Contacto <span className="text-blue-600">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="+57 310 123 4567"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Ciudad / Departamento / País <span className="text-blue-600">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Bogotá D.C., Colombia"
+                      value={formData.city}
+                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium"
+                    />
+                  </div>
+                </div>
+
+                {/* Routing: Division & Category */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Gerencia de Enlace Receptora <span className="text-blue-600">*</span>
+                    </label>
+                    <select
+                      value={formData.targetDivision}
+                      onChange={(e) => setFormData({ ...formData, targetDivision: e.target.value as any })}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white font-medium"
+                    >
+                      <option value="transporte">Gerencia Técnica y Transporte</option>
+                      <option value="seguridad">Gerencia de Seguridad y Operaciones</option>
+                      <option value="proyectos">Gerencia de Desarrollo de Proyectos e Inv.</option>
+                      <option value="administrativa">Gerencia Administrativa y Financiera</option>
+                      <option value="gerencia">Gerencia General / Dirección</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Línea o Categoría del Servicio <span className="text-blue-600">*</span>
+                    </label>
+                    <select
+                      value={formData.serviceCategory}
+                      onChange={(e) => setFormData({ ...formData, serviceCategory: e.target.value as any })}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white font-medium"
+                    >
+                      <option value="civil">Obras Civiles, Puentes y Hangares</option>
+                      <option value="transporte_pesado">Transporte Pesado, Cisternas y Graneles</option>
+                      <option value="naval_desguace">Desguace, Reciclaje Naval y Acero</option>
+                      <option value="estudios_bim">Estudios BIM y Cálculo Estructural</option>
+                      <option value="licitaciones">Licitaciones y Alianzas Internacionales</option>
+                      <option value="otro">Otro Requerimiento Administrativo</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Scope & Message */}
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                    Descripción del Requerimiento / Alcance Técnico <span className="text-blue-600">*</span>
+                  </label>
+                  <textarea
+                    required
+                    rows={4}
+                    placeholder="Describa el origen y destino de carga, volumen a transportar, tipo de obra civil o buque para desguace..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium resize-y"
+                  />
+                </div>
+
+                {/* Submit button */}
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Respuesta formal con radicado institucional en &lt; 24h</span>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all disabled:opacity-50"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>{isSubmitting ? 'Radicando...' : 'Radicar Solicitud Oficial'}</span>
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
