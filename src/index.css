@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   html {
@@ -7,10 +8,16 @@
     background-color: #f8fafc;
     color: #0f172a;
   }
+  html.dark { background-color: #0f172a; color: #f1f5f9; }
   h1, h2, h3, .font-heading {
     font-family: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
   }
 }
+
+/* Animaciones de entrada */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
 /* Custom scrollbars for clean light corporate theme */
 ::-webkit-scrollbar {

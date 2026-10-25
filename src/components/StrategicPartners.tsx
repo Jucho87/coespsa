@@ -7,9 +7,18 @@ import {
 } from 'lucide-react';
 import { STRATEGIC_PARTNERS } from '../data/companyData';
 
+const LOGO_DOMAINS: Record<string, string> = {
+  caterpillar: 'caterpillar.com', cat: 'caterpillar.com', kenworth: 'kenworth.com', volvo: 'volvo.com',
+};
+const logoDomain = (name: string) => {
+  const key = name.toLowerCase();
+  const known = Object.keys(LOGO_DOMAINS).find((k) => key.split(/\W+/).includes(k));
+  return known ? LOGO_DOMAINS[known] : `${key.split(/\s+/)[0].replace(/[^a-z0-9]/g, '')}.com`;
+};
+
 export const StrategicPartners: React.FC = () => {
   return (
-    <section id="alianzas" className="py-20 bg-slate-50 border-b border-slate-200 relative">
+    <section id="alianzas" className="reveal py-20 bg-slate-50 border-b border-slate-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
@@ -47,6 +56,13 @@ export const StrategicPartners: React.FC = () => {
                   <Globe2 className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors" />
                 </div>
 
+                <img
+                  src={`https://logo.clearbit.com/${logoDomain(partner.name)}`}
+                  alt={`Logo ${partner.name}`}
+                  loading="lazy"
+                  className="h-10 w-auto object-contain mb-2"
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                />
                 <h3 className="text-base font-bold text-slate-950 group-hover:text-blue-700 transition-colors mb-1 font-heading">
                   {partner.name}
                 </h3>

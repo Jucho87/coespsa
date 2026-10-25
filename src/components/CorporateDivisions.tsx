@@ -40,7 +40,7 @@ export const CorporateDivisions: React.FC<CorporateDivisionsProps> = ({
   };
 
   return (
-    <section id="gerencias" className="py-20 bg-slate-50 border-b border-slate-200 relative">
+    <section id="gerencias" className="reveal py-20 bg-slate-50 border-b border-slate-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-12">

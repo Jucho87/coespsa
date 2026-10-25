@@ -20,8 +20,18 @@ export const AboutCompany: React.FC<AboutCompanyProps> = ({ onOpenImage }) => {
   const [activeTab, setActiveTab] = React.useState<'mision_vision' | 'hseq' | 'legal'>('mision_vision');
 
   return (
-    <section id="empresa" className="py-20 bg-white border-b border-slate-200 relative">
+    <section id="empresa" className="reveal py-20 bg-white border-b border-slate-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* KPI strip */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px mb-12 rounded-2xl overflow-hidden bg-blue-500 shadow-md">
+          {[['🏗️', '+25', 'años'], ['📋', '+300', 'proyectos'], ['🚛', '+80', 'vehículos'], ['📍', '7', 'departamentos']].map(([icon, n, label]) => (
+            <div key={label} className="bg-blue-600 text-white p-5 text-center">
+              <div className="text-3xl sm:text-4xl font-extrabold font-heading"><span aria-hidden="true">{icon} </span>{n}</div>
+              <div className="text-xs sm:text-sm uppercase tracking-wide text-blue-100 mt-1">{label}</div>
+            </div>
+          ))}
+        </div>
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>

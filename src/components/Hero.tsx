@@ -23,25 +23,18 @@ export const Hero: React.FC<HeroProps> = ({
   onNavigateTo
 }) => {
   return (
-    <section id="inicio" className="relative pt-32 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-b from-slate-100 via-white to-slate-50 border-b border-slate-200">
-      {/* Subtle geometric pattern */}
-      <div 
-        className="absolute inset-0 opacity-40 pointer-events-none" 
-        style={{
-          backgroundImage: `radial-gradient(#cbd5e1 1px, transparent 1px)`,
-          backgroundSize: '24px 24px'
-        }}
-      />
+    <section id="inicio" className="relative pt-32 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-slate-900 bg-[url('/assets/curated/transport_fleet.jpg')] bg-cover bg-center border-b border-slate-200">
+      <div className="absolute inset-0 bg-slate-900/60 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Badges */}
         <div className="flex flex-wrap items-center gap-3 mb-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold tracking-wide shadow-xs">
-            <ShieldCheck className="w-4 h-4 text-blue-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/25 text-white text-xs font-bold tracking-wide shadow-xs backdrop-blur-sm">
+            <ShieldCheck className="w-4 h-4 text-blue-300" />
             <span>Comercializadora Internacional (C.I.) Registrada en Colombia</span>
           </div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold">
-            <Radio className="w-3.5 h-3.5 text-emerald-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-300/40 text-emerald-100 text-xs font-semibold backdrop-blur-sm">
+            <Radio className="w-3.5 h-3.5 text-emerald-300" />
             <span>Monitoreo Satelital GPS & Telemetría en Ruta 24/7</span>
           </div>
         </div>
@@ -50,18 +43,18 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Heading and Presentation */}
           <div className="lg:col-span-7 flex flex-col">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-blue-700 mb-2">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-blue-300 mb-2">
               Company Structural Engineering Civil, Mechanical and Naval
             </span>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.1] mb-6 font-heading">
-              COESPSA <span className="text-blue-600">C.I. S.A.S.</span>
-              <span className="block text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-700 mt-2">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 font-heading">
+              COESPSA <span className="text-blue-400">C.I. S.A.S.</span>
+              <span className="block text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-200 mt-2">
                 Ingeniería Estructural, Transporte Pesado y Desguace Naval
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed mb-8 max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-200 font-normal leading-relaxed mb-8 max-w-2xl">
               Organización de alta ingeniería y logística especializada con sede principal en Bogotá D.C. 
               Líderes en obras de <strong>infraestructura civil</strong>, transporte intermodal de <strong>carga pesada e hidrocarburos</strong>, 
               y pioneros en Colombia en el <strong>desmantelamiento y reciclaje ecológico de buques</strong> bajo rigurosos estándares HSEQ.

@@ -5,9 +5,12 @@ import {
   Menu, 
   X, 
   Send, 
-  ChevronRight
+  ChevronRight,
+  Moon,
+  Sun
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
+import { useActiveSection } from './ScrollIndicator';
 
 interface NavbarProps {
   onNavigateTo: (sectionId: string) => void;
@@ -16,6 +19,13 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onNavigateTo }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
+  const activeSection = useActiveSection();
+  const [dark, setDark] = React.useState(() => localStorage.getItem('theme') === 'dark');
+
+  React.useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark);
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }, [dark]);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -114,7 +124,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateTo }) => {
             <button
               key={link.label}
               onClick={() => handleLinkClick(link.href)}
-              className="px-3 py-1.5 text-sm font-semibold text-slate-700 hover:text-blue-700 hover:bg-slate-100 rounded-lg transition-colors"
+              aria-current={activeSection === link.href ? 'true' : undefined}
+              className={`px-3 py-1.5 text-sm rounded-lg transition-colors hover:bg-slate-100 ${
+                activeSection === link.href
+                  ? 'text-blue-600 font-bold border-b-2 border-blue-600 rounded-b-none'
+                  : 'font-semibold text-slate-700 hover:text-blue-700'
+              }`}
             >
               {link.label}
             </button>
@@ -122,10 +137,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateTo }) => {
         </nav>
 
         {/* Action Button: Cotizar / Contacto */}
-        <div className="hidden sm:flex items-center gap-3">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setDark((d) => !d)}
+            aria-label={dark ? 'Activar modo claro' : 'Activar modo oscuro'}
+            title={dark ? 'Modo claro' : 'Modo oscuro'}
+            className="p-2 rounded-lg border border-slate-300 bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+          >
+            {dark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
           <button
             onClick={() => handleLinkClick('contacto')}
-            className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs tracking-wide rounded-xl shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 transition-all hover:-translate-y-0.5"
+            className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs tracking-wide rounded-xl shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 transition-all hover:-translate-y-0.5"
           >
             <Send className="w-3.5 h-3.5" />
             <span>Cotizar / Contacto</span>

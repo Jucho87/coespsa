@@ -21,7 +21,7 @@ export const OperationsAndFleet: React.FC<OperationsAndFleetProps> = ({
   onNavigateToContact
 }) => {
   return (
-    <section id="operaciones" className="py-20 bg-slate-50 border-b border-slate-200 relative">
+    <section id="operaciones" className="reveal py-20 bg-slate-50 border-b border-slate-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">

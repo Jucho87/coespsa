@@ -39,6 +39,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   const [submittedRadicado, setSubmittedRadicado] = React.useState<string | null>(null);
   const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitted, setSubmitted] = React.useState(false);
+
+  const validate = (d: typeof formData): Record<string, string> => {
+    const errs: Record<string, string> = {};
+    if (!d.contactPerson.trim()) errs.contactPerson = 'Ingrese el nombre de contacto.';
+    if (!d.email.trim()) errs.email = 'Ingrese un correo electrónico.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) errs.email = 'Correo electrónico inválido.';
+    if (!d.phone.trim()) errs.phone = 'Ingrese un teléfono de contacto.';
+    if (!d.message.trim()) errs.message = 'Describa su requerimiento.';
+    return errs;
+  };
+  const errors = submitted ? validate(formData) : {};
+  const fieldCls = (k: string) =>
+    !submitted ? 'border-slate-300' : errors[k] ? 'border-red-500 ring-1 ring-red-200' : 'border-emerald-500';
+  const fieldErr = (k: string) =>
+    errors[k] ? <p id={`err-${k}`} className="mt-1 text-[11px] text-red-600 font-medium">{errors[k]}</p> : null;
 
   React.useEffect(() => {
     if (preselectedDivision) {
@@ -55,8 +71,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
+    setSubmitted(true);
 
-    if (!formData.companyName.trim() || !formData.contactPerson.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()) {
+    if (Object.keys(validate(formData)).length > 0 || !formData.companyName.trim() || !formData.contactPerson.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()) {
       setErrorMessage('Por favor complete los campos obligatorios para radicar su requerimiento corporativo.');
       return;
     }
@@ -89,6 +106,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
   const handleResetForm = () => {
     setSubmittedRadicado(null);
+    setSubmitted(false);
     setFormData({
       companyName: '',
       contactPerson: '',
@@ -105,7 +123,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   };
 
   return (
-    <section id="contacto" className="py-20 bg-white border-b border-slate-200 relative">
+    <section id="contacto" className="reveal py-20 bg-white border-b border-slate-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-12">
@@ -283,6 +301,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               </div>
             ) : (
               <form 
+                noValidate
                 onSubmit={handleSubmit}
                 className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-md space-y-5"
               >
@@ -330,8 +349,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       placeholder="Ej: Ing. Carlos Rivas (Dir. Operaciones)"
                       value={formData.contactPerson}
                       onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium"
+                      className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium ${fieldCls('contactPerson')}`}
+                      aria-invalid={!!errors.contactPerson}
+                      aria-describedby={errors.contactPerson ? 'err-contactPerson' : undefined}
                     />
+                    {fieldErr('contactPerson')}
                   </div>
                 </div>
 
@@ -362,8 +384,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       placeholder="contacto@suempresa.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium"
+                      className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium ${fieldCls('email')}`}
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? 'err-email' : undefined}
                     />
+                    {fieldErr('email')}
                   </div>
                 </div>
 
@@ -380,8 +405,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       placeholder="+57 310 123 4567"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium"
+                      className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium ${fieldCls('phone')}`}
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={errors.phone ? 'err-phone' : undefined}
                     />
+                    {fieldErr('phone')}
                   </div>
 
                   <div>
@@ -452,8 +480,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     placeholder="Describa el origen y destino de carga, volumen a transportar, tipo de obra civil o buque para desguace..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium resize-y"
+                    className={`w-full bg-slate-50 border rounded-xl p-3.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium resize-y ${fieldCls('message')}`}
+                      aria-invalid={!!errors.message}
+                      aria-describedby={errors.message ? 'err-message' : undefined}
                   />
+                    {fieldErr('message')}
                 </div>
 
                 {/* Submit button */}

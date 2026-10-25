@@ -15,9 +15,11 @@ import { StrategicPartners } from './components/StrategicPartners';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ImageModal } from './components/ImageModal';
+import { ScrollIndicator, useReveal } from './components/ScrollIndicator';
 import { ContactSubmission } from './types';
 
 export default function App() {
+  useReveal();
   const [preselectedDivision, setPreselectedDivision] = React.useState<ContactSubmission['targetDivision']>('transporte');
   const [preselectedService, setPreselectedService] = React.useState<ContactSubmission['serviceCategory']>('civil');
 
@@ -64,7 +66,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
       {/* Executive Clean Light Navbar */}
       <Navbar onNavigateTo={handleNavigateTo} />
 
@@ -109,6 +111,8 @@ export default function App() {
           preselectedService={preselectedService}
         />
       </main>
+
+      <ScrollIndicator />
 
       {/* Corporate Footer */}
       <Footer onNavigateTo={handleNavigateTo} />
