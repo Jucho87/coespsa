@@ -129,113 +129,113 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Official Contact Card & PBX Lines */}
+          {/* Left Column: Official Contact Card matching reference imagen_7eed9fa6.png */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm space-y-6">
+            <div className="p-6 sm:p-8 rounded-3xl bg-slate-50/80 border border-slate-200/90 shadow-sm space-y-6">
               <div>
-                <span className="text-xs uppercase font-bold tracking-wider text-blue-700 block mb-1">
-                  Sede Principal Corporativa
-                </span>
-                <h3 className="text-xl font-bold text-slate-950 font-heading">
+                <h3 className="text-2xl font-black text-slate-950 font-heading tracking-tight">
                   COESPSA C.I. S.A.S.
                 </h3>
-                <p className="text-xs text-slate-500 mt-1">
+                <p className="text-sm text-slate-500 mt-1 font-normal">
                   Company Structural Engineering Civil, Mechanical and Naval C.I. S.A.S.
                 </p>
               </div>
 
-              {/* Contact Items */}
-              <div className="space-y-3.5 text-xs sm:text-sm">
-                {/* PBX 1 */}
-                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-                  <div className="p-2.5 rounded-lg bg-blue-50 text-blue-700 shrink-0">
-                    <Phone className="w-4 h-4" />
+              {/* Exact 5 Reference Cards */}
+              <div className="space-y-3.5">
+                {/* 1. PBX Conmutador Principal */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4 hover:border-blue-300 hover:shadow-sm transition-all">
+                  <div className="text-blue-600 shrink-0">
+                    <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] text-slate-500 block font-medium">Línea PBX Conmutador Principal</span>
-                    <a href={`tel:${COMPANY_INFO.pbx1.replace(/[^0-9]/g, '')}`} className="text-slate-950 font-bold hover:text-blue-700 transition-colors text-sm">
-                      {COMPANY_INFO.pbx1}
-                    </a>
-                  </div>
-                </div>
-
-                {/* PBX 2 */}
-                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-                  <div className="p-2.5 rounded-lg bg-blue-50 text-blue-700 shrink-0">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] text-slate-500 block font-medium">Línea PBX Secundaria</span>
-                    <a href={`tel:${COMPANY_INFO.pbx2.replace(/[^0-9]/g, '')}`} className="text-slate-950 font-bold hover:text-blue-700 transition-colors text-sm">
-                      {COMPANY_INFO.pbx2}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Email Customer Service */}
-                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-                  <div className="p-2.5 rounded-lg bg-sky-50 text-sky-700 shrink-0">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] text-slate-500 block font-medium">Servicio al Cliente & Cotizaciones</span>
-                    <a href={`mailto:${COMPANY_INFO.emailCustomerService}`} className="text-blue-700 font-bold hover:underline break-all text-xs">
-                      {COMPANY_INFO.emailCustomerService}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Email Management */}
-                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-                  <div className="p-2.5 rounded-lg bg-amber-50 text-amber-700 shrink-0">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] text-slate-500 block font-medium">Gerencia General & Contratos</span>
-                    <a href={`mailto:${COMPANY_INFO.emailManagement}`} className="text-slate-900 font-bold hover:underline break-all text-xs">
-                      {COMPANY_INFO.emailManagement}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Location */}
-                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-                  <div className="p-2.5 rounded-lg bg-slate-100 text-slate-700 shrink-0">
-                    <MapPin className="w-4 h-4 text-blue-600" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] text-slate-500 block font-medium">Domicilio y Operaciones</span>
-                    <span className="text-slate-900 font-bold text-xs">
-                      {COMPANY_INFO.headquarters}
+                    <span className="text-xs text-slate-500 block font-normal leading-tight">
+                      Línea PBX Conmutador Principal
                     </span>
-                    <span className="block text-[11px] text-slate-500 mt-0.5">
-                      Patios Fontibón & Terminales Portuarias Aliadas
-                    </span>
+                    <a 
+                      href="tel:5715402267" 
+                      className="text-slate-950 font-black text-lg sm:text-xl tracking-tight hover:text-blue-600 transition-colors block mt-0.5"
+                    >
+                      (571) 540 2267
+                    </a>
                   </div>
                 </div>
 
-                {/* Working hours */}
-                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-                  <div className="p-2.5 rounded-lg bg-emerald-50 text-emerald-700 shrink-0">
-                    <Clock className="w-4 h-4" />
+                {/* 2. PBX Secundaria */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4 hover:border-blue-300 hover:shadow-sm transition-all">
+                  <div className="text-blue-600 shrink-0">
+                    <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] text-slate-500 block font-medium">Horarios de Atención Administrativa</span>
-                    <span className="text-slate-800 text-xs font-semibold">
-                      Lunes a Viernes: 07:30 - 18:00 • Sábados: 08:00 - 13:00
+                    <span className="text-xs text-slate-500 block font-normal leading-tight">
+                      Línea PBX Secundaria
                     </span>
-                    <span className="block text-[11px] text-emerald-700 font-semibold mt-0.5">
-                      Centro de Control Satelital: Operación 24/7/365
+                    <a 
+                      href="tel:5715407200" 
+                      className="text-slate-950 font-black text-lg sm:text-xl tracking-tight hover:text-blue-600 transition-colors block mt-0.5"
+                    >
+                      (571) 540 7200
+                    </a>
+                  </div>
+                </div>
+
+                {/* 3. Servicio al Cliente & Cotizaciones */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4 hover:border-sky-300 hover:shadow-sm transition-all">
+                  <div className="text-sky-600 shrink-0">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-slate-500 block font-normal leading-tight">
+                      Servicio al Cliente & Cotizaciones
+                    </span>
+                    <a 
+                      href="mailto:asistente@grupocoespsa.com" 
+                      className="text-blue-600 font-bold text-sm sm:text-base hover:underline block mt-0.5 break-all"
+                    >
+                      asistente@grupocoespsa.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* 4. Gerencia General */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4 hover:border-amber-300 hover:shadow-sm transition-all">
+                  <div className="text-amber-500 shrink-0">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-slate-500 block font-normal leading-tight">
+                      Gerencia General
+                    </span>
+                    <a 
+                      href="mailto:iltpdirector@grupocoespsa.com" 
+                      className="text-slate-900 font-bold text-sm sm:text-base hover:underline block mt-0.5 break-all"
+                    >
+                      iltpdirector@grupocoespsa.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* 5. Domicilio Principal */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4 hover:border-blue-300 hover:shadow-sm transition-all">
+                  <div className="text-blue-600 shrink-0">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-slate-500 block font-normal leading-tight">
+                      Domicilio Principal
+                    </span>
+                    <span className="text-slate-950 font-black text-sm sm:text-base block mt-0.5">
+                      Bogotá D.C., Colombia
                     </span>
                   </div>
                 </div>
               </div>
 
               {/* Safety badge */}
-              <div className="p-3.5 rounded-xl bg-blue-50 border border-blue-200 flex items-center gap-3 text-xs text-blue-900 font-medium">
+              <div className="p-3.5 rounded-xl bg-blue-50/70 border border-blue-200/70 flex items-center gap-3 text-xs text-blue-900 font-medium">
                 <ShieldCheck className="w-5 h-5 text-blue-600 shrink-0" />
                 <span>
-                  Tratamiento confidencial de propuestas y cumplimiento de la Ley de Protección de Datos (Habeas Data).
+                  Tratamiento confidencial de propuestas técnicas y cumplimiento de la Ley de Protección de Datos (Habeas Data).
                 </span>
               </div>
             </div>

@@ -142,14 +142,14 @@ export const Hero: React.FC<HeroProps> = ({
               {/* Badge on Card */}
               <div className="absolute top-6 left-6 z-10 px-3 py-1.5 rounded-lg bg-white/95 backdrop-blur-md border border-slate-200 text-xs font-bold text-blue-900 flex items-center gap-1.5 shadow-sm">
                 <Award className="w-3.5 h-3.5 text-amber-500" />
-                <span>Parque de Maquinaria Propia</span>
+                <span>Flota y Operaciones Propias</span>
               </div>
 
               <button
                 onClick={() => onOpenImage(
-                  '/assets/extracted/machinery_collage.jpg', 
-                  'Parque de Maquinaria Pesada COESPSA', 
-                  'Caterpillar 349D, dumpers Volvo y equipos pesados de perforación'
+                  '/assets/aistudio/imagen_3404f9cd.png', 
+                  'Flota Oficial de Transporte y Cisternas COESPSA C.I. S.A.S.', 
+                  'Tractocamiones Freightliner y unidades cisterna en patios operativos'
                 )}
                 className="absolute top-6 right-6 z-10 p-2 rounded-lg bg-white/90 hover:bg-white text-slate-700 border border-slate-200 shadow-sm transition-colors"
                 title="Ampliar imagen"
@@ -157,36 +157,36 @@ export const Hero: React.FC<HeroProps> = ({
                 <Maximize2 className="w-4 h-4" />
               </button>
 
-              {/* Main Photo (Machinery collage extracted from slide) */}
+              {/* Main Photo (Authentic company fleet photo) */}
               <div 
                 className="relative rounded-xl overflow-hidden aspect-[16/10] bg-slate-100 cursor-pointer group border border-slate-200"
                 onClick={() => onOpenImage(
-                  '/assets/extracted/machinery_collage.jpg', 
-                  'Parque de Maquinaria Pesada y Flota COESPSA', 
-                  'Fotografías reales extraídas de las diapositivas oficiales de COESPSA C.I. S.A.S.'
+                  '/assets/aistudio/imagen_3404f9cd.png', 
+                  'Flota Oficial de Transporte y Cisternas COESPSA', 
+                  'Parque automotor propio, tractocamiones Freightliner y cisternas de carga pesada'
                 )}
               >
                 <img
-                  src="/assets/extracted/machinery_collage.jpg"
-                  alt="Maquinaria Pesada COESPSA"
+                  src="/assets/aistudio/imagen_3404f9cd.png"
+                  alt="Flota de Transporte Pesado COESPSA"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-60" />
                 <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-white">
-                  <span className="font-semibold drop-shadow">Excavadoras CAT, Tolvas y Equipos Pesados</span>
+                  <span className="font-semibold drop-shadow">Flota de Tractocamiones y Cisternas Propias</span>
                   <span className="text-cyan-300 font-mono">Ampliar ↗</span>
                 </div>
               </div>
 
-              {/* 3 Mini Thumbnails */}
+              {/* 3 Mini Thumbnails: Civil, Transporte, Naval */}
               <div className="grid grid-cols-3 gap-2.5 mt-2.5">
                 <div 
-                  onClick={() => onOpenImage('/assets/extracted/civil_bridge_infrastructure.jpg', 'Infraestructura Civil - Puentes')}
+                  onClick={() => onOpenImage('/assets/aistudio/imagen_8b182caa.png', 'Ingeniería Civil - Obras Viales, Hangares y Excavación')}
                   className="relative rounded-lg overflow-hidden aspect-[4/3] bg-slate-100 cursor-pointer border border-slate-200 hover:border-blue-500 transition-colors group shadow-xs"
                 >
                   <img 
-                    src="/assets/extracted/civil_bridge_infrastructure.jpg" 
-                    alt="Puente y Viaducto" 
+                    src="/assets/aistudio/imagen_8b182caa.png" 
+                    alt="Ingeniería Civil" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
                   />
                   <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors" />
@@ -194,12 +194,12 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
 
                 <div 
-                  onClick={() => onOpenImage('/assets/extracted/transport_tanker_fleet.jpg', 'Flota Cisternas e Hidrocarburos')}
+                  onClick={() => onOpenImage('/assets/aistudio/imagen_3404f9cd.png', 'Gerencia Técnica y Transporte - Flota de Cisternas')}
                   className="relative rounded-lg overflow-hidden aspect-[4/3] bg-slate-100 cursor-pointer border border-slate-200 hover:border-blue-500 transition-colors group shadow-xs"
                 >
                   <img 
-                    src="/assets/extracted/transport_tanker_fleet.jpg" 
-                    alt="Flota de Cisternas" 
+                    src="/assets/aistudio/imagen_3404f9cd.png" 
+                    alt="Flota de Transporte" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
                   />
                   <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors" />
@@ -207,12 +207,12 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
 
                 <div 
-                  onClick={() => onOpenImage('/assets/extracted/naval_vessel_dismantling.jpg', 'Ingeniería Naval - Desguace de Buques')}
+                  onClick={() => onOpenImage('/assets/aistudio/imagen_5e9efe17.png', 'Ingeniería Naval - Desguace, Astillero y Reciclaje de Acero')}
                   className="relative rounded-lg overflow-hidden aspect-[4/3] bg-slate-100 cursor-pointer border border-slate-200 hover:border-blue-500 transition-colors group shadow-xs"
                 >
                   <img 
-                    src="/assets/extracted/naval_vessel_dismantling.jpg" 
-                    alt="Desmantelamiento Naval" 
+                    src="/assets/aistudio/imagen_5e9efe17.png" 
+                    alt="Ingeniería Naval" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
                   />
                   <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors" />

@@ -81,21 +81,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateTo }) => {
         {/* Brand / Logo */}
         <button 
           onClick={() => handleLinkClick('inicio')}
-          className="flex items-center gap-3 group text-left"
+          className="flex items-center gap-3.5 group text-left py-0.5"
         >
-          <div className="w-11 h-11 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center p-1 overflow-hidden shadow-sm group-hover:scale-105 transition-transform">
+          <div className="h-12 sm:h-14 w-auto px-2 py-1 rounded-xl bg-white border border-slate-200/90 shadow-xs flex items-center justify-center group-hover:border-blue-400 group-hover:shadow-sm transition-all">
             <img 
-              src="/assets/extracted/coespsa_logo.png" 
-              alt="COESPSA Logo" 
-              className="w-full h-full object-contain filter drop-shadow"
+              src="/assets/aistudio/imagen_96ed2a7a.png" 
+              alt="COESPSA Engineering Company Logo" 
+              className="h-full w-auto max-w-[160px] sm:max-w-[190px] object-contain"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = '/assets/extracted/logo_clean.png';
+                (e.target as HTMLImageElement).src = '/assets/aistudio/imagen_552f7f2d.png';
               }}
             />
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
-              <span className="text-xl font-extrabold tracking-tight text-slate-950 group-hover:text-blue-700 transition-colors">
+              <span className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-950 group-hover:text-blue-700 transition-colors">
                 COESPSA <span className="text-blue-600 text-xs font-bold px-1.5 py-0.5 rounded bg-blue-50 border border-blue-200">C.I. S.A.S.</span>
               </span>
             </div>

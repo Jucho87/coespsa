@@ -28,13 +28,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTo }) => {
       <div className="border-b border-slate-800/80 bg-slate-950/60 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center p-1 shadow-sm">
+            <div className="h-12 sm:h-14 w-auto px-2.5 py-1 rounded-xl bg-white flex items-center justify-center shadow-sm border border-slate-700">
               <img 
-                src="/assets/extracted/coespsa_logo.png" 
-                alt="COESPSA Logo" 
-                className="w-full h-full object-contain"
+                src="/assets/aistudio/imagen_96ed2a7a.png" 
+                alt="COESPSA Engineering Company Logo" 
+                className="h-full w-auto max-w-[170px] object-contain"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/assets/extracted/logo_clean.png';
+                  (e.target as HTMLImageElement).src = '/assets/aistudio/imagen_552f7f2d.png';
                 }}
               />
             </div>
@@ -48,10 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTo }) => {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="text-xs text-blue-400 font-semibold hidden sm:inline-block">
-              Bogotá D.C. • Cobertura Nacional e Internacional
-            </span>
+          <div className="flex items-center gap-3">
             <button
               onClick={scrollToTop}
               className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
@@ -205,8 +202,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTo }) => {
           </div>
         </div>
 
+
         {/* Legal Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
+        <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <div>
             © {new Date().getFullYear()} {COMPANY_INFO.fullName}. Todos los derechos reservados.
           </div>

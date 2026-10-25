@@ -215,29 +215,29 @@ export const AboutCompany: React.FC<AboutCompanyProps> = ({ onOpenImage }) => {
                 </div>
               </div>
 
-              {/* Blueprint Preview */}
+              {/* Corporate Infrastructure & Headquarters Showcase */}
               <div className="rounded-2xl bg-white border border-slate-200 p-4 shadow-sm">
                 <div className="flex items-center justify-between mb-3 text-xs text-slate-600">
-                  <span className="font-bold text-slate-800">Plano Oficial de Marca COESPSA</span>
+                  <span className="font-bold text-slate-800">Infraestructura, Hangares & Patios Industriales</span>
                   <button 
-                    onClick={() => onOpenImage('/assets/extracted/logo_clean.png', 'Logo y Plano Estructural COESPSA C.I. S.A.S.', 'Identidad corporativa con plano esquemático de excavadora')}
+                    onClick={() => onOpenImage('/assets/aistudio/imagen_8b182caa.png', 'Infraestructura, Hangares y Obras Civiles COESPSA C.I. S.A.S.', 'Estructuras de hangares industriales, vías de acceso y movimiento masivo de tierras')}
                     className="text-blue-600 hover:text-blue-700 font-bold"
                   >
                     Ver en alta resolución ↗
                   </button>
                 </div>
                 <div 
-                  className="rounded-xl overflow-hidden bg-slate-900 p-2 cursor-pointer group"
-                  onClick={() => onOpenImage('/assets/extracted/logo_clean.png', 'Logo y Plano Estructural COESPSA', 'Diapositiva oficial restaurada')}
+                  className="rounded-xl overflow-hidden aspect-[16/10] bg-slate-100 cursor-pointer group"
+                  onClick={() => onOpenImage('/assets/aistudio/imagen_8b182caa.png', 'Infraestructura, Hangares y Obras Civiles COESPSA C.I. S.A.S.', 'Estructuras de hangares industriales, vías de acceso y movimiento masivo de tierras')}
                 >
                   <img
-                    src="/assets/extracted/logo_clean.png"
-                    alt="Plano Logo COESPSA"
-                    className="w-full h-auto object-contain max-h-56 mx-auto group-hover:scale-105 transition-transform"
+                    src="/assets/aistudio/imagen_8b182caa.png"
+                    alt="Infraestructura Industrial y Obras COESPSA"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <p className="text-[11px] text-slate-500 text-center mt-3">
-                  Registro de propiedad intelectual y emblema industrial de ingeniería pesada.
+                  Infraestructura civil propia: hangares estructurales, adecuación vial y frentes de excavación pesada en Bogotá D.C. y regiones.
                 </p>
               </div>
             </div>

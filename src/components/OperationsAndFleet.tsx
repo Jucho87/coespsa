@@ -42,7 +42,7 @@ export const OperationsAndFleet: React.FC<OperationsAndFleetProps> = ({
           <div className="mt-4 md:mt-0 flex items-center gap-3">
             <button
               onClick={() => onOpenImage(
-                '/assets/extracted/operations_control_room.jpg',
+                '/assets/curated/operations_control_room.jpg',
                 'Centro de Control Satelital y Telemetría 24/7',
                 'Sala de monitoreo de rutas de COESPSA C.I. S.A.S.'
               )}
@@ -94,13 +94,13 @@ export const OperationsAndFleet: React.FC<OperationsAndFleetProps> = ({
             <div 
               className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-900 border border-slate-200 shadow-md cursor-pointer group"
               onClick={() => onOpenImage(
-                '/assets/extracted/operations_control_room.jpg',
+                '/assets/curated/operations_control_room.jpg',
                 'Sala de Mando y Monitoreo Satelital 24/7',
                 'Pantallas de telemetría de ruta, velocidad y sensores de seguridad'
               )}
             >
               <img
-                src="/assets/extracted/operations_control_room.jpg"
+                src="/assets/curated/operations_control_room.jpg"
                 alt="Sala de Monitoreo GPS"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />

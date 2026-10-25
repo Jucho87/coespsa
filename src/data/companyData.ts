@@ -9,8 +9,8 @@ export const COMPANY_INFO = {
   pbx1: '(571) 540 2267',
   pbx2: '(571) 540 7200',
   pbxFormatted: '+57 (1) 540 2267 / 540 7200',
-  emailCustomerService: 'servicioalclientecoespsa@gmail.com',
-  emailManagement: 'coespsagerencia-1963@hotmail.com',
+  emailCustomerService: 'asistente@grupocoespsa.com',
+  emailManagement: 'iltpdirector@grupocoespsa.com',
   motto: 'Excelencia estructural, logística integral y sostenibilidad panamericana',
   stats: [
     { label: 'Años de Experiencia y Solidez', value: '+25' },
@@ -27,7 +27,7 @@ export const DIVISIONS = [
     name: 'Gerencia Técnica y Transporte',
     shortName: 'Técnica & Transporte',
     leadTitle: 'Dirección de Flota, Mantenimiento y Logística de Carga Pesada',
-    image: '/assets/extracted/transport_tanker_fleet.jpg',
+    image: '/assets/aistudio/imagen_3404f9cd.png',
     description: 'Gestión integral del parque automotor pesado, unidades cisterna para líquidos e hidrocarburos, tolvas graneleras, camabajas para maquinaria y mantenimiento mecánico predictivo continuo.',
     departments: [
       {
@@ -63,7 +63,7 @@ export const DIVISIONS = [
     name: 'Gerencia de Seguridad y Operaciones',
     shortName: 'Seguridad & Operaciones',
     leadTitle: 'Seguridad Integral, Resguardo en Ruta y Monitoreo Satelital 24/7',
-    image: '/assets/extracted/operations_control_room.jpg',
+    image: '/assets/curated/operations_control_room.jpg',
     description: 'Custodia integral de la carga, acompañamiento coordinado con autoridades policiales y militares, protocolos de gestión del riesgo y centro de control con geocercas satelitales en tiempo real.',
     departments: [
       {
@@ -94,7 +94,7 @@ export const DIVISIONS = [
     name: 'Gerencia de Desarrollo de Proyectos e Investigación',
     shortName: 'Proyectos & I+D',
     leadTitle: 'Estudios de Ingeniería, Innovación Tecnológica y Gestión Ambiental HSEQ',
-    image: '/assets/extracted/civil_bridge_infrastructure.jpg',
+    image: '/assets/aistudio/imagen_8b182caa.png',
     description: 'Desarrollo de proyectos estructurales complejos, cálculo de puentes, hangares, movimiento masivo de tierras y planes de manejo ambiental para obras civiles y desmantelamiento industrial.',
     departments: [
       {
@@ -125,7 +125,7 @@ export const DIVISIONS = [
     name: 'Gerencia Administrativa y Financiera',
     shortName: 'Administración & Finanzas',
     leadTitle: 'Gobernanza Corporativa, Jurídica, Talento Humano y Comercio Exterior C.I.',
-    image: '/assets/extracted/organigram_chart.jpg',
+    image: '/assets/curated/operations_telemetry.jpg',
     description: 'Soporte estratégico a toda la operación empresarial: administración de contratos, licitaciones públicas, comercio exterior como Comercializadora Internacional (C.I.), nómina y control financiero.',
     departments: [
       {
@@ -158,11 +158,11 @@ export const ENGINEERING_LINES = [
     id: 'civil',
     title: 'Ingeniería Civil e Infraestructura',
     subtitle: 'Megaproyectos de Transporte, Hangares y Movimiento de Tierras',
-    heroImage: '/assets/extracted/civil_bridge_infrastructure.jpg',
+    heroImage: '/assets/aistudio/imagen_8b182caa.png',
     secondaryImages: [
-      '/assets/extracted/civil_hangar_structure.jpg',
-      '/assets/extracted/civil_earthworks_grading.jpg',
-      '/assets/extracted/mountain_excavator.jpg'
+      '/assets/aistudio/imagen_8b182caa.png',
+      '/assets/curated/civil_hangar.jpg',
+      '/assets/curated/civil_excavator.jpg'
     ],
     summary: 'Construcción de viaductos, puentes vehiculares de acero y concreto, naves industriales tipo hangar, bodegas logísticas y explanaciones masivas con maquinaria pesada de última generación.',
     capabilities: [
@@ -177,12 +177,11 @@ export const ENGINEERING_LINES = [
     id: 'mecanica',
     title: 'Ingeniería Mecánica & Transporte Pesado',
     subtitle: 'Flota Especializada, Cisternas, Graneles y Maquinaria Pesada',
-    heroImage: '/assets/extracted/volvo_haul_fleet.jpg',
+    heroImage: '/assets/aistudio/imagen_3404f9cd.png',
     secondaryImages: [
-      '/assets/extracted/transport_tanker_fleet.jpg',
-      '/assets/extracted/heavy_bulldozer.jpg',
-      '/assets/extracted/mining_excavator_load.jpg',
-      '/assets/extracted/crawler_drilling_rigs.jpg'
+      '/assets/aistudio/imagen_3404f9cd.png',
+      '/assets/curated/transport_fleet.jpg',
+      '/assets/curated/transport_tanker.jpg'
     ],
     summary: 'Soluciones intermodales para el transporte terrestre de carga extra-dimensionada y extrapesada, hidrocarburos, químicos certificados, minerales a granel y traslados de frentes de minería.',
     capabilities: [
@@ -197,10 +196,11 @@ export const ENGINEERING_LINES = [
     id: 'naval',
     title: 'Ingeniería Naval & Desguace Sostenible',
     subtitle: 'Desmantelamiento de Embarcaciones, Reciclaje de Acero y Reparaciones',
-    heroImage: '/assets/extracted/naval_vessel_dismantling.jpg',
+    heroImage: '/assets/aistudio/imagen_5e9efe17.png',
     secondaryImages: [
-      '/assets/extracted/naval_cutting_torch.jpg',
-      '/assets/extracted/naval_shipyard_port.jpg'
+      '/assets/aistudio/imagen_5e9efe17.png',
+      '/assets/curated/naval_cutting.jpg',
+      '/assets/curated/naval_shipyard.jpg'
     ],
     summary: 'Pioneros en Colombia en la técnica de reciclaje ecológico y desguace controlado de embarcaciones mayores (remolcadores, barcazas, buques de carga), cumpliendo los lineamientos del Convenio de Hong Kong para el reciclaje seguro y ambientalmente racional de buques.',
     capabilities: [

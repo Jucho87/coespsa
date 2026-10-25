@@ -36,19 +36,12 @@ export const OrganigramViewer: React.FC<OrganigramViewerProps> = ({ onOpenImage 
             </p>
           </div>
 
-          {/* Quick Button to inspect the original slide chart */}
-          <div className="mt-6 md:mt-0">
-            <button
-              onClick={() => onOpenImage(
-                '/assets/extracted/organigram_chart.jpg',
-                'Organigrama Estructural Oficial - COESPSA C.I. S.A.S.',
-                'Expediente estatutario original restaurado de la empresa'
-              )}
-              className="flex items-center gap-2 px-4 py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 rounded-xl text-xs font-bold transition-all shadow-2xs"
-            >
-              <Maximize2 className="w-4 h-4" />
-              <span>Ver Gráfico Oficial Escaneado</span>
-            </button>
+          {/* Status Badge */}
+          <div className="mt-4 md:mt-0">
+            <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Gobernanza Corporativa Activa</span>
+            </span>
           </div>
         </div>
 
@@ -223,41 +216,41 @@ export const OrganigramViewer: React.FC<OrganigramViewerProps> = ({ onOpenImage 
               </div>
             </div>
 
-            {/* Scanned Organigram Graphic Card Preview */}
+            {/* Executive Operations Command Center Photo */}
             <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
               <div className="flex items-center justify-between mb-3 text-xs">
                 <span className="font-bold text-slate-800 flex items-center gap-1.5">
-                  <FileText className="w-3.5 h-3.5 text-blue-600" />
-                  Archivo Original de Diapositiva
+                  <Building className="w-3.5 h-3.5 text-blue-600" />
+                  Centro de Control & Mando Directivo
                 </span>
                 <button
                   onClick={() => onOpenImage(
-                    '/assets/extracted/organigram_chart.jpg',
-                    'Organigrama Corporativo COESPSA',
-                    'Documento gráfico de la estructura piramidal'
+                    '/assets/curated/operations_control_room.jpg',
+                    'Centro de Mando y Dirección Operativa COESPSA C.I. S.A.S.',
+                    'Instalaciones de monitoreo y coordinación de gerencias'
                   )}
                   className="text-blue-600 hover:text-blue-700 font-bold"
                 >
-                  Ampliar plano ↗
+                  Ver foto ↗
                 </button>
               </div>
 
               <div 
-                className="rounded-xl overflow-hidden bg-slate-900 border border-slate-200 cursor-pointer group"
+                className="rounded-xl overflow-hidden aspect-[16/10] bg-slate-100 border border-slate-200 cursor-pointer group"
                 onClick={() => onOpenImage(
-                  '/assets/extracted/organigram_chart.jpg',
-                  'Organigrama Corporativo COESPSA',
-                  'Documento gráfico de la estructura piramidal'
+                  '/assets/curated/operations_control_room.jpg',
+                  'Centro de Mando y Dirección Operativa COESPSA C.I. S.A.S.',
+                  'Instalaciones de monitoreo y coordinación de gerencias'
                 )}
               >
                 <img
-                  src="/assets/extracted/organigram_chart.jpg"
-                  alt="Organigrama Oficial COESPSA"
-                  className="w-full h-auto object-contain max-h-48 group-hover:scale-105 transition-transform"
+                  src="/assets/curated/operations_control_room.jpg"
+                  alt="Centro de Mando y Operaciones"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <p className="text-[11px] text-slate-500 text-center mt-2.5">
-                Diagrama gráfico institucional extraído de las actas de conformación de COESPSA C.I. S.A.S.
+                Coordinación en tiempo real entre la Dirección General, Gerencia de Transporte y Gerencia de Proyectos.
               </p>
             </div>
           </div>

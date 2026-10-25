@@ -1,0 +1,1022 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COESPSA C.I. S.A.S. - Ingeniería Estructural, Transporte Pesado y Desguace Naval</title>
+  <meta name="description" content="Company Structural Engineering Civil, Mechanical and Naval C.I. S.A.S. - Portal Corporativo de Ingeniería Civil, Transporte de Carga Pesada y Desguace Naval Sostenible en Colombia." />
+  
+  <link rel="icon" type="image/png" href="assets/aistudio/imagen_96ed2a7a.png">
+  <link rel="shortcut icon" href="assets/aistudio/imagen_96ed2a7a.png">
+  <meta property="og:image" content="assets/aistudio/imagen_96ed2a7a.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            heading: ['"Space Grotesk"', '"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: #f8fafc; color: #0f172a; }
+    h1, h2, h3, .font-heading { font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs transition-all">
+    <!-- Top micro bar -->
+    <div class="hidden lg:flex items-center justify-between max-w-7xl mx-auto px-6 py-1.5 border-b border-slate-100 text-xs text-slate-600 font-medium">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-1.5 text-blue-700 font-bold uppercase text-[11px] tracking-wide">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-blue-600 inline"></i>
+          Comercializadora Internacional C.I. S.A.S. • Registro Oficial DIAN
+        </span>
+        <span class="text-slate-300">•</span>
+        <span>Sede Principal: Bogotá D.C., Colombia</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="tel:5715402267" class="hover:text-blue-700 transition-colors flex items-center gap-1.5 text-slate-700">
+          <i data-lucide="phone" class="w-3 h-3 text-blue-600 inline"></i>
+          <span>PBX: <strong class="font-bold text-slate-900">(571) 540 2267</strong></span>
+        </a>
+        <span class="text-slate-300">|</span>
+        <a href="tel:5715407200" class="hover:text-blue-700 transition-colors flex items-center gap-1.5 text-slate-700">
+          <i data-lucide="phone" class="w-3 h-3 text-blue-600 inline"></i>
+          <span><strong class="font-bold text-slate-900">(571) 540 7200</strong></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="#inicio" class="flex items-center gap-3.5 group text-left">
+        <div class="h-12 sm:h-14 w-auto px-2 py-1 rounded-xl bg-white border border-slate-200/90 shadow-xs flex items-center justify-center group-hover:border-blue-400 transition-all">
+          <img src="assets/aistudio/imagen_96ed2a7a.png" onerror="handleImgError(this)" alt="COESPSA Engineering Company Logo" class="h-full w-auto max-w-[160px] sm:max-w-[190px] object-contain">
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-extrabold tracking-tight text-slate-950 group-hover:text-blue-700 transition-colors">
+              COESPSA <span class="text-blue-600 text-xs font-bold px-1.5 py-0.5 rounded bg-blue-50 border border-blue-200">C.I. S.A.S.</span>
+            </span>
+          </div>
+          <span class="text-[10px] text-slate-500 tracking-wider uppercase font-semibold hidden sm:inline-block">
+            Ingeniería Civil • Mecánica • Transporte • Naval
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden xl:flex items-center gap-1">
+        <a href="#inicio" class="px-3 py-1.5 text-sm font-semibold text-slate-700 hover:text-blue-700 hover:bg-slate-100 rounded-lg transition-colors">Inicio</a>
+        <a href="#empresa" class="px-3 py-1.5 text-sm font-semibold text-slate-700 hover:text-blue-700 hover:bg-slate-100 rounded-lg transition-colors">Nuestra Empresa</a>
+        <a href="#gerencias" class="px-3 py-1.5 text-sm font-semibold text-slate-700 hover:text-blue-700 hover:bg-slate-100 rounded-lg transition-colors">Gerencias</a>
+        <a href="#ingenieria" class="px-3 py-1.5 text-sm font-semibold text-slate-700 hover:text-blue-700 hover:bg-slate-100 rounded-lg transition-colors">Ingeniería</a>
+        <a href="#operaciones" class="px-3 py-1.5 text-sm font-semibold text-slate-700 hover:text-blue-700 hover:bg-slate-100 rounded-lg transition-colors">Flota & Operaciones</a>
+        <a href="#organigrama" class="px-3 py-1.5 text-sm font-semibold text-slate-700 hover:text-blue-700 hover:bg-slate-100 rounded-lg transition-colors">Organigrama</a>
+        <a href="#alianzas" class="px-3 py-1.5 text-sm font-semibold text-slate-700 hover:text-blue-700 hover:bg-slate-100 rounded-lg transition-colors">Alianzas</a>
+        <a href="#contacto" class="px-3 py-1.5 text-sm font-semibold text-slate-700 hover:text-blue-700 hover:bg-slate-100 rounded-lg transition-colors">Contacto</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="#contacto" class="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs tracking-wide rounded-xl shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 transition-all hover:-translate-y-0.5">
+          <i data-lucide="send" class="w-3.5 h-3.5 inline"></i>
+          <span>Cotizar / Contacto</span>
+        </a>
+      </div>
+
+      <!-- Mobile Button -->
+      <div class="flex items-center gap-2 xl:hidden">
+        <a href="#contacto" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-bold rounded-lg sm:hidden">Contacto</a>
+        <button onclick="toggleMobileMenu()" class="p-2 text-slate-700 hover:text-slate-950 bg-slate-100 border border-slate-300 rounded-lg">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 px-6 py-4 shadow-xl">
+      <div class="flex flex-col gap-1 pb-3 border-b border-slate-200">
+        <a href="#inicio" onclick="toggleMobileMenu()" class="py-2 px-3 text-sm font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg">Inicio</a>
+        <a href="#empresa" onclick="toggleMobileMenu()" class="py-2 px-3 text-sm font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg">Nuestra Empresa</a>
+        <a href="#gerencias" onclick="toggleMobileMenu()" class="py-2 px-3 text-sm font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg">Gerencias</a>
+        <a href="#ingenieria" onclick="toggleMobileMenu()" class="py-2 px-3 text-sm font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg">Líneas de Ingeniería</a>
+        <a href="#operaciones" onclick="toggleMobileMenu()" class="py-2 px-3 text-sm font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg">Flota & Operaciones</a>
+        <a href="#organigrama" onclick="toggleMobileMenu()" class="py-2 px-3 text-sm font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg">Organigrama Oficial</a>
+        <a href="#alianzas" onclick="toggleMobileMenu()" class="py-2 px-3 text-sm font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg">Alianzas y Holdings</a>
+        <a href="#contacto" onclick="toggleMobileMenu()" class="py-2 px-3 text-sm font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg">Contáctenos</a>
+      </div>
+      <div class="pt-3">
+        <a href="#contacto" onclick="toggleMobileMenu()" class="block text-center w-full py-2.5 bg-blue-600 text-white font-bold text-xs rounded-xl shadow-xs">
+          Solicitar Cotización Inmediata
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section id="inicio" class="relative pt-32 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-b from-slate-100 via-white to-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Badges -->
+      <div class="flex flex-wrap items-center gap-3 mb-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold tracking-wide shadow-xs">
+          <i data-lucide="shield-check" class="w-4 h-4 text-blue-600"></i>
+          <span>Comercializadora Internacional (C.I.) Registrada en Colombia</span>
+        </div>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold">
+          <i data-lucide="radio" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>Monitoreo Satelital GPS & Telemetría en Ruta 24/7</span>
+        </div>
+      </div>
+
+      <!-- Hero Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 flex flex-col">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-blue-700 mb-2">
+            Company Structural Engineering Civil, Mechanical and Naval
+          </span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.1] mb-6 font-heading">
+            COESPSA <span class="text-blue-600">C.I. S.A.S.</span>
+            <span class="block text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-700 mt-2">
+              Ingeniería Estructural, Transporte Pesado y Desguace Naval
+            </span>
+          </h1>
+          <p class="text-base sm:text-lg text-slate-600 font-normal leading-relaxed mb-8 max-w-2xl">
+            Organización de alta ingeniería y logística especializada con sede principal en Bogotá D.C. Líderes en obras de <strong>infraestructura civil</strong>, transporte intermodal de <strong>carga pesada e hidrocarburos</strong>, y pioneros en Colombia en el <strong>desmantelamiento y reciclaje ecológico de buques</strong> bajo rigurosos estándares HSEQ.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 mb-10">
+            <a href="#contacto" class="flex items-center gap-2.5 px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl shadow-lg shadow-blue-500/25 transition-all hover:-translate-y-0.5">
+              <span>Solicitar Cotización de Proyecto</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#gerencias" class="flex items-center gap-2 px-5 py-3.5 bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm rounded-xl border border-slate-300 shadow-xs hover:border-slate-400 transition-all">
+              <span>Conocer las 4 Gerencias</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+            </a>
+            <a href="#operaciones" class="flex items-center gap-2 px-4 py-3.5 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs uppercase tracking-wide rounded-xl border border-blue-200 transition-all">
+              <span>Ver Flota & Operaciones</span>
+            </a>
+          </div>
+
+          <!-- 3 Quick Pillars -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-slate-200">
+            <a href="#ingenieria" class="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200 hover:border-blue-500 hover:shadow-md transition-all group">
+              <div class="p-2.5 rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                <i data-lucide="hard-hat" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-700">Ingeniería Civil</h4>
+                <p class="text-[11px] text-slate-500">Puentes & Hangares</p>
+              </div>
+            </a>
+            <a href="#ingenieria" class="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200 hover:border-blue-500 hover:shadow-md transition-all group">
+              <div class="p-2.5 rounded-lg bg-sky-50 text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition-colors">
+                <i data-lucide="truck" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-700">Mecánica & Flota</h4>
+                <p class="text-[11px] text-slate-500">Cisternas & Tolvas</p>
+              </div>
+            </a>
+            <a href="#ingenieria" class="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200 hover:border-blue-500 hover:shadow-md transition-all group">
+              <div class="p-2.5 rounded-lg bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                <i data-lucide="anchor" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-700">Ingeniería Naval</h4>
+                <p class="text-[11px] text-slate-500">Desguace de Buques</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Visual Feature Card -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-2xl bg-white p-3.5 border border-slate-200 shadow-xl">
+            <div class="absolute top-6 left-6 z-10 px-3 py-1.5 rounded-lg bg-white/95 backdrop-blur-md border border-slate-200 text-xs font-bold text-blue-900 flex items-center gap-1.5 shadow-xs">
+              <i data-lucide="award" class="w-3.5 h-3.5 text-amber-500"></i>
+              <span>Flota y Operaciones Propias</span>
+            </div>
+            <button onclick="openModal('assets/aistudio/imagen_3404f9cd.png', 'Flota Oficial de Transporte y Cisternas COESPSA C.I. S.A.S.', 'Tractocamiones Freightliner y unidades cisterna en patios operativos')" class="absolute top-6 right-6 z-10 p-2 rounded-lg bg-white/90 hover:bg-white text-slate-700 border border-slate-200 shadow-xs">
+              <i data-lucide="maximize-2" class="w-4 h-4"></i>
+            </button>
+
+            <!-- Main photo -->
+            <div onclick="openModal('assets/aistudio/imagen_3404f9cd.png', 'Flota Oficial de Transporte y Cisternas COESPSA')" class="relative rounded-xl overflow-hidden aspect-[16/10] bg-slate-100 cursor-pointer group border border-slate-200">
+              <img src="assets/aistudio/imagen_3404f9cd.png" onerror="handleImgError(this)" alt="Flota de Transporte Pesado" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-60"></div>
+              <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-white">
+                <span class="font-semibold drop-shadow">Flota de Tractocamiones y Cisternas Propias</span>
+                <span class="text-cyan-300 font-mono">Ampliar ↗</span>
+              </div>
+            </div>
+
+            <!-- 3 Thumbnails: Civil, Transporte, Naval -->
+            <div class="grid grid-cols-3 gap-2.5 mt-2.5">
+              <div onclick="openModal('assets/aistudio/imagen_8b182caa.png', 'Ingeniería Civil - Obras Viales, Hangares y Excavación')" class="relative rounded-lg overflow-hidden aspect-[4/3] bg-slate-100 cursor-pointer border border-slate-200 hover:border-blue-500 group">
+                <img src="assets/aistudio/imagen_8b182caa.png" onerror="handleImgError(this)" alt="Civil" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                <span class="absolute bottom-1 left-1.5 text-[10px] font-bold text-white bg-slate-900/80 px-1.5 py-0.2 rounded">Civil</span>
+              </div>
+              <div onclick="openModal('assets/aistudio/imagen_3404f9cd.png', 'Gerencia Técnica y Transporte - Flota de Cisternas')" class="relative rounded-lg overflow-hidden aspect-[4/3] bg-slate-100 cursor-pointer border border-slate-200 hover:border-blue-500 group">
+                <img src="assets/aistudio/imagen_3404f9cd.png" onerror="handleImgError(this)" alt="Transporte" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                <span class="absolute bottom-1 left-1.5 text-[10px] font-bold text-white bg-slate-900/80 px-1.5 py-0.2 rounded">Transporte</span>
+              </div>
+              <div onclick="openModal('assets/aistudio/imagen_5e9efe17.png', 'Ingeniería Naval - Desguace, Astillero y Reciclaje de Acero')" class="relative rounded-lg overflow-hidden aspect-[4/3] bg-slate-100 cursor-pointer border border-slate-200 hover:border-blue-500 group">
+                <img src="assets/aistudio/imagen_5e9efe17.png" onerror="handleImgError(this)" alt="Naval" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                <span class="absolute bottom-1 left-1.5 text-[10px] font-bold text-white bg-slate-900/80 px-1.5 py-0.2 rounded">Naval</span>
+              </div>
+            </div>
+
+            <div class="mt-3 p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs">
+              <div>
+                <p class="text-slate-500 font-medium">Sede Principal:</p>
+                <p class="text-slate-900 font-bold">Bogotá D.C., Colombia</p>
+              </div>
+              <div class="text-right">
+                <p class="text-slate-500 font-medium">Conmutador PBX:</p>
+                <a href="tel:5715402267" class="text-blue-600 font-bold hover:underline">(571) 540 2267</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Ribbon -->
+      <div class="mt-14 grid grid-cols-2 md:grid-cols-5 gap-4 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+        <div class="flex flex-col border-l border-slate-200 pl-4 first:border-l-0">
+          <span class="text-3xl font-extrabold text-blue-600 font-heading">+25</span>
+          <span class="text-xs text-slate-600 font-semibold mt-1">Años de Solidez y Experiencia</span>
+        </div>
+        <div class="flex flex-col border-l border-slate-200 pl-4">
+          <span class="text-3xl font-extrabold text-blue-600 font-heading">450K+</span>
+          <span class="text-xs text-slate-600 font-semibold mt-1">Toneladas Movilizadas Anuales</span>
+        </div>
+        <div class="flex flex-col border-l border-slate-200 pl-4">
+          <span class="text-3xl font-extrabold text-blue-600 font-heading">180+</span>
+          <span class="text-xs text-slate-600 font-semibold mt-1">Unidades de Flota y Maquinaria</span>
+        </div>
+        <div class="flex flex-col border-l border-slate-200 pl-4">
+          <span class="text-3xl font-extrabold text-blue-600 font-heading">1.2M+</span>
+          <span class="text-xs text-slate-600 font-semibold mt-1">Horas Hombre Sin Accidentes (HSEQ)</span>
+        </div>
+        <div class="flex flex-col border-l border-slate-200 pl-4">
+          <span class="text-3xl font-extrabold text-blue-600 font-heading">99.9%</span>
+          <span class="text-xs text-slate-600 font-semibold mt-1">Disponibilidad Satelital GPS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NUESTRA EMPRESA ================= -->
+  <section id="empresa" class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
+          <i data-lucide="building-2" class="w-3.5 h-3.5 inline"></i>
+          <span>Identidad & Solidez Corporativa</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight font-heading">Nuestra Organización</h2>
+        <p class="text-slate-600 text-base mt-2 max-w-2xl">
+          COESPSA C.I. S.A.S. integra ingeniería civil estructural, transporte intermodal de carga pesada y tecnologías pioneras de desguace y reciclaje naval con proyección internacional.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Misión -->
+        <div class="lg:col-span-6 p-8 rounded-2xl bg-gradient-to-br from-white to-blue-50/50 border border-slate-200 shadow-md">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-6">
+            <i data-lucide="target" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-950 mb-3 font-heading">Nuestra Misión</h3>
+          <p class="text-slate-700 leading-relaxed text-sm sm:text-base mb-6">
+            Brindar soluciones integrales de alta ingeniería en los sectores de <strong>Ingeniería Civil</strong>, <strong>Transporte de Carga Pesada y Carga Especializada</strong>, e <strong>Ingeniería Naval</strong> con énfasis en el desguace y reciclaje sostenible de buques, garantizando la máxima confiabilidad operativa, cumplimiento riguroso de normativas y el resguardo del entorno socioambiental.
+          </p>
+          <div class="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-700 font-medium">
+            <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-blue-600 shrink-0"></i> Seguridad integral con cuerpos policiales y militares</div>
+            <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-blue-600 shrink-0"></i> Respuesta técnica especializada para megaproyectos</div>
+            <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-blue-600 shrink-0"></i> Monitoreo satelital 24/7 y telemetría de ruta en tiempo real</div>
+          </div>
+        </div>
+
+        <!-- Visión -->
+        <div class="lg:col-span-6 p-8 rounded-2xl bg-gradient-to-br from-white to-sky-50/50 border border-slate-200 shadow-md">
+          <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-6">
+            <i data-lucide="compass" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-950 mb-3 font-heading">Nuestra Visión</h3>
+          <p class="text-slate-700 leading-relaxed text-sm sm:text-base mb-6">
+            Consolidarnos como la empresa líder en Colombia y referente de primer orden en el ámbito panamericano en <strong>ingeniería estructural integrada</strong>, <strong>logística de carga pesada</strong> e <strong>industria de desmantelamiento naval sostenible</strong>, distinguiéndonos por la excelencia técnica, la innovación continua y sólidas alianzas de inversión internacional.
+          </p>
+          <div class="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-700 font-medium">
+            <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sky-600 shrink-0"></i> Red de comercio exterior hacia EE.UU., Panamá y el Caribe</div>
+            <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sky-600 shrink-0"></i> Liderazgo en reciclaje de acero bajo Convenio de Hong Kong</div>
+            <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sky-600 shrink-0"></i> Flota moderna con reducción calculada de huella de carbono</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4 GERENCIAS ================= -->
+  <section id="gerencias" class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
+          <i data-lucide="layers" class="w-3.5 h-3.5 inline"></i>
+          <span>Estructura de Mando & Dirección</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight font-heading">Nuestras 4 Gerencias Estratégicas</h2>
+        <p class="text-slate-600 text-base mt-2 max-w-2xl">
+          Estructura de cuatro gerencias que coordinan la flota de transporte pesado, la seguridad vial con escolta satelital, los cálculos de obra civil y la solidez administrativa C.I.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Gerencia 1 -->
+        <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between hover:border-blue-400 transition-all">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+              <i data-lucide="truck" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-950 font-heading mb-1">Gerencia Técnica y Transporte</h3>
+            <span class="text-xs font-semibold text-blue-700 block mb-3">Flota, Patios & Mantenimiento</span>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Control integral del parque automotor pesado, unidades cisterna para líquidos e hidrocarburos, tolvas graneleras y camabajas para maquinaria de hasta 120 tons.
+            </p>
+            <ul class="text-xs text-slate-700 space-y-1.5 font-medium border-t border-slate-100 pt-3">
+              <li>• Departamento de Transporte</li>
+              <li>• Departamento Técnico</li>
+              <li>• Dirección de Tráfico y Control</li>
+              <li>• Patios y Talleres Especializados</li>
+            </ul>
+          </div>
+          <a href="#contacto" class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700">Contactar área →</a>
+        </div>
+
+        <!-- Gerencia 2 -->
+        <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between hover:border-blue-400 transition-all">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-950 font-heading mb-1">Gerencia Seguridad y Operaciones</h3>
+            <span class="text-xs font-semibold text-emerald-700 block mb-3">Monitoreo 24/7 & Custodia</span>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Custodia integral de la carga, acompañamiento coordinado con Policía y Ejército, protocolos de gestión del riesgo y centro de control con geocercas satelitales.
+            </p>
+            <ul class="text-xs text-slate-700 space-y-1.5 font-medium border-t border-slate-100 pt-3">
+              <li>• Dirección de Seguridad (Enlace Policial)</li>
+              <li>• Dirección de Operaciones y Ruta</li>
+              <li>• Centro de Monitoreo GPS Satelital</li>
+              <li>• Inspección previa antinarcóticos</li>
+            </ul>
+          </div>
+          <a href="#contacto" class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 hover:text-emerald-700">Contactar área →</a>
+        </div>
+
+        <!-- Gerencia 3 -->
+        <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between hover:border-blue-400 transition-all">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4">
+              <i data-lucide="folder-git-2" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-950 font-heading mb-1">Gerencia Desarrollo de Proyectos</h3>
+            <span class="text-xs font-semibold text-sky-700 block mb-3">Ingeniería, BIM e I+D</span>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Cálculo estructural de puentes y hangares, movimiento masivo de tierras, licenciamiento ambiental y la línea pionera de reciclaje y desmantelamiento naval.
+            </p>
+            <ul class="text-xs text-slate-700 space-y-1.5 font-medium border-t border-slate-100 pt-3">
+              <li>• Estudio, Diseño Estructural e Innovación</li>
+              <li>• Dirección de Medio Ambiente HSEQ</li>
+              <li>• Desarrollo y Sistemas</li>
+              <li>• Desguace controlado de embarcaciones</li>
+            </ul>
+          </div>
+          <a href="#contacto" class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 hover:text-sky-700">Contactar área →</a>
+        </div>
+
+        <!-- Gerencia 4 -->
+        <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between hover:border-blue-400 transition-all">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
+              <i data-lucide="briefcase" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-950 font-heading mb-1">Gerencia Administrativa y Financiera</h3>
+            <span class="text-xs font-semibold text-amber-700 block mb-3">Gobernanza, Finanzas & C.I.</span>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              Administración de contratos, licitaciones públicas y privadas, facultades aduaneras de Comercializadora Internacional (C.I.), talento humano y tesorería.
+            </p>
+            <ul class="text-xs text-slate-700 space-y-1.5 font-medium border-t border-slate-100 pt-3">
+              <li>• Dirección Financiera y Presupuesto</li>
+              <li>• Dirección de Recursos Humanos</li>
+              <li>• Dirección Jurídica y Licitaciones</li>
+              <li>• Control Aduanero C.I. ante la DIAN</li>
+            </ul>
+          </div>
+          <a href="#contacto" class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 hover:text-amber-700">Contactar área →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LÍNEAS DE INGENIERÍA ================= -->
+  <section id="ingenieria" class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
+          <i data-lucide="wrench" class="w-3.5 h-3.5 inline"></i>
+          <span>Capacidades de Ejecución</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight font-heading">Líneas de Ingeniería Especializada</h2>
+        <p class="text-slate-600 text-base mt-2 max-w-2xl">
+          Tres pilares técnicos con maquinaria pesada de gran capacidad y personal calificado para obras civiles, logística de hidrocarburos y desguace naval.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- 1. Civil -->
+        <div class="rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+          <div>
+            <div onclick="openModal('assets/aistudio/imagen_8b182caa.png', 'Ingeniería Civil e Infraestructura - Obras, Hangares y Excavación')" class="aspect-[16/10] bg-slate-200 overflow-hidden cursor-pointer relative group">
+              <img src="assets/aistudio/imagen_8b182caa.png" onerror="handleImgError(this)" alt="Puente y Obra Civil" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-slate-900/80 text-[10px] text-white font-mono">Ampliar ↗</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-950 font-heading mb-2">Ingeniería Civil e Infraestructura</h3>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                Construcción de viaductos, puentes vehiculares atirantados y vigas postensadas, hangares industriales, naves logísticas y explanaciones masivas.
+              </p>
+              <div class="space-y-1.5 text-xs text-slate-700 font-medium mb-4">
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> Puentes vehiculares de gran luz</div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> Hangares con estructuras de alta resistencia</div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> Movimiento masivo y estabilización de taludes</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="#contacto" class="block text-center py-2.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-xs">Cotizar Obra Civil</a>
+          </div>
+        </div>
+
+        <!-- 2. Mecánica y Transporte -->
+        <div class="rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+          <div>
+            <div onclick="openModal('assets/aistudio/imagen_3404f9cd.png', 'Ingeniería Mecánica y Flota Pesada')" class="aspect-[16/10] bg-slate-200 overflow-hidden cursor-pointer relative group">
+              <img src="assets/aistudio/imagen_3404f9cd.png" onerror="handleImgError(this)" alt="Transporte Pesado" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-slate-900/80 text-[10px] text-white font-mono">Ampliar ↗</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-950 font-heading mb-2">Mecánica & Transporte Pesado</h3>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                Transporte de carga extradimensionada y extrapesada, tanques cisterna certificados para hidrocarburos y químicos, tolvas volteo y camabajas modulares hasta 120 tons.
+              </p>
+              <div class="space-y-1.5 text-xs text-slate-700 font-medium mb-4">
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> Cisternas aisladas para derivados y crudo</div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> Camabajas cuello de cisne desmontable</div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> Tolvas herméticas de alto cubicaje</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="#contacto" class="block text-center py-2.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-xs">Cotizar Transporte</a>
+          </div>
+        </div>
+
+        <!-- 3. Naval -->
+        <div class="rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+          <div>
+            <div onclick="openModal('assets/aistudio/imagen_5e9efe17.png', 'Ingeniería Naval - Desguace Sostenible y Astillero')" class="aspect-[16/10] bg-slate-200 overflow-hidden cursor-pointer relative group">
+              <img src="assets/aistudio/imagen_5e9efe17.png" onerror="handleImgError(this)" alt="Desguace Naval" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-slate-900/80 text-[10px] text-white font-mono">Ampliar ↗</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-950 font-heading mb-2">Ingeniería Naval & Desguace Sostenible</h3>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                Pioneros en Colombia en desmantelamiento controlado y reciclaje ecológico de buques, barcazas y remolcadores, conforme al Convenio de Hong Kong con rescate certificado de aceros.
+              </p>
+              <div class="space-y-1.5 text-xs text-slate-700 font-medium mb-4">
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-600"></i> Oxicorte técnico y cizallas hidráulicas</div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-600"></i> Extracción de hidrocarburos y sentinas</div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-600"></i> Reciclaje del 98% del acero estructural</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="#contacto" class="block text-center py-2.5 px-4 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow-xs">Cotizar Desguace Naval</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FLOTA & OPERACIONES ================= -->
+  <section id="operaciones" class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
+          <i data-lucide="radio" class="w-3.5 h-3.5 inline"></i>
+          <span>Control Operativo 24/7</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight font-heading">Flota y Telemetría Satelital en Ruta</h2>
+        <p class="text-slate-600 text-base mt-2 max-w-2xl">
+          Supervisión satelital permanente de los despachos en todo el territorio colombiano con escoltas y sensores de seguridad.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
+        <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+          <h3 class="text-2xl font-bold text-slate-950 font-heading mb-3">Sala de Mando y Monitoreo Permanente</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            Centro de control con pantallas multipantalla de telemetría de ruta, velocidad, sensores de temperatura de motor y botón de pánico enlazado directamente con los batallones viales de las fuerzas militares y Policía de Carreteras.
+          </p>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
+              <span class="text-xs text-slate-500 font-medium block">Horas HSEQ</span>
+              <strong class="text-lg text-blue-700 font-bold">+1.2M</strong>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
+              <span class="text-xs text-slate-500 font-medium block">Disponibilidad</span>
+              <strong class="text-lg text-emerald-700 font-bold">99.9%</strong>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
+              <span class="text-xs text-slate-500 font-medium block">Parque Activo</span>
+              <strong class="text-lg text-slate-900 font-bold">180+</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div onclick="openModal('assets/curated/operations_control_room.jpg', 'Centro de Monitoreo Satelital')" class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md cursor-pointer group relative">
+            <img src="assets/curated/operations_control_room.jpg" onerror="handleImgError(this)" alt="Sala de Monitoreo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-white">
+              <span class="font-semibold drop-shadow">Sala de Mando Satelital 24/7</span>
+              <span class="text-cyan-300 font-mono">Ampliar ↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ORGANIGRAMA OFICIAL ================= -->
+  <section id="organigrama" class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
+            <i data-lucide="network" class="w-3.5 h-3.5 inline"></i>
+            <span>Gobernanza Corporativa</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight font-heading">Estructura Organizacional Oficial</h2>
+          <p class="text-slate-600 text-base mt-2 max-w-2xl">
+            Organigrama piramidal de COESPSA C.I. S.A.S. aprobado por la Asamblea de Accionistas y Junta Directiva.
+          </p>
+        </div>
+        <div class="mt-4 md:mt-0">
+          <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Gobernanza Corporativa Activa</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="p-6 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col md:flex-row items-center gap-8">
+        <div class="flex-1 space-y-3 text-xs sm:text-sm text-slate-700">
+          <div class="p-3 bg-white rounded-xl border border-slate-200 font-semibold text-slate-900">
+            Nivel 1: Asamblea General de Accionistas
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="p-3 bg-white rounded-xl border border-slate-200 font-semibold text-slate-900">Nivel 2: Junta Directiva</div>
+            <div class="p-3 bg-blue-600 text-white rounded-xl font-bold">Nivel 2: Gerencia General</div>
+          </div>
+          <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-900 font-medium">
+            Órganos de Control: Revisoría Fiscal & Asesoría Jurídica
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
+            <div class="p-2.5 bg-white border border-slate-200 rounded-lg text-center font-bold text-[11px]">Gerencia Técnica & Transporte</div>
+            <div class="p-2.5 bg-white border border-slate-200 rounded-lg text-center font-bold text-[11px]">Gerencia Seguridad & Operaciones</div>
+            <div class="p-2.5 bg-white border border-slate-200 rounded-lg text-center font-bold text-[11px]">Gerencia Proyectos & I+D</div>
+            <div class="p-2.5 bg-white border border-slate-200 rounded-lg text-center font-bold text-[11px]">Gerencia Administrativa</div>
+          </div>
+        </div>
+
+        <div onclick="openModal('assets/curated/operations_control_room.jpg', 'Centro de Mando y Dirección Operativa COESPSA C.I. S.A.S.', 'Instalaciones de monitoreo y coordinación de gerencias')" class="w-full md:w-80 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 cursor-pointer group shadow-xs">
+          <div class="aspect-[16/10] overflow-hidden">
+            <img src="assets/curated/operations_control_room.jpg" onerror="handleImgError(this)" alt="Centro de Mando y Operaciones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-3 bg-white border-t border-slate-200">
+            <span class="text-xs font-bold text-slate-900 block">Centro de Control & Mando Directivo</span>
+            <span class="text-[11px] text-blue-600 font-semibold">Ver fotografía en alta resolución ↗</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ALIANZAS ================= -->
+  <section id="alianzas" class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
+          <i data-lucide="handshake" class="w-3.5 h-3.5 inline"></i>
+          <span>Red Global & Consorcios</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight font-heading">Alianzas Estratégicas y Holdings</h2>
+        <p class="text-slate-600 text-base mt-2 max-w-2xl">
+          Convenios y alianzas con empresas de transporte, constructoras y holdings en Colombia, EE.UU. y Panamá.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Aliado Operativo</span>
+          <h4 class="text-base font-bold text-slate-950 mt-2">Transportes GY</h4>
+          <p class="text-xs text-slate-500 mb-2">Colombia</p>
+          <p class="text-xs text-slate-600">Sinergia en corredores viales y centros de acopio estratégicos.</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Infraestructura</span>
+          <h4 class="text-base font-bold text-slate-950 mt-2">EPSA Internacional S.A.</h4>
+          <p class="text-xs text-slate-500 mb-2">Bogotá / Cali / Puertos</p>
+          <p class="text-xs text-slate-600">Obras civiles de subestaciones y megaproyectos energéticos.</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Socio Internacional</span>
+          <h4 class="text-base font-bold text-slate-950 mt-2">Nirk Magnate Holding</h4>
+          <p class="text-xs text-slate-500 mb-2">Miami, Florida - USA</p>
+          <p class="text-xs text-slate-600">Inversión de capital y subastas de maquinaria pesada norteamericana.</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Alianza Marítima</span>
+          <h4 class="text-base font-bold text-slate-950 mt-2">Gares Investment Corp.</h4>
+          <p class="text-xs text-slate-500 mb-2">Panamá - Miami</p>
+          <p class="text-xs text-slate-600">Corretaje naval y contratos de desguace en la cuenca atlántica.</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Holding Corporativo</span>
+          <h4 class="text-base font-bold text-slate-950 mt-2">Pegusa Inc.</h4>
+          <p class="text-xs text-slate-500 mb-2">New York, USA</p>
+          <p class="text-xs text-slate-600">Investigación de nuevos materiales estructurales y aleaciones metálicas.</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Consorcio Civil</span>
+          <h4 class="text-base font-bold text-slate-950 mt-2">Murcia y Murcia Const.</h4>
+          <p class="text-xs text-slate-500 mb-2">Colombia</p>
+          <p class="text-xs text-slate-600">Licitaciones de viaductos y pavimentación masiva en la región andina.</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Comercio Exterior C.I.</span>
+          <h4 class="text-base font-bold text-slate-950 mt-2">SIGSA Southwestern</h4>
+          <p class="text-xs text-slate-500 mb-2">Panamá - Colombia</p>
+          <p class="text-xs text-slate-600">Exportación de chatarra naval reciclada y aceros procesados.</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <span class="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Consorcio Latinoamericano</span>
+          <h4 class="text-base font-bold text-slate-950 mt-2">Tradeco Group</h4>
+          <p class="text-xs text-slate-500 mb-2">América Latina</p>
+          <p class="text-xs text-slate-600">Experiencia acumulada en túneles viales y cimentaciones complejas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FORMULARIO CONTACTO ================= -->
+  <section id="contacto" class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
+          <i data-lucide="headphones" class="w-3.5 h-3.5 inline"></i>
+          <span>Atención Institucional & Cotizaciones</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight font-heading">Contáctenos y Radicación de Proyectos</h2>
+        <p class="text-slate-600 text-base mt-2 max-w-2xl">
+          Comuníquese directamente con nuestras gerencias corporativas en Bogotá D.C. Evaluamos solicitudes en menos de 24 horas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Contact Cards matching imagen_7eed9fa6.png -->
+        <div class="lg:col-span-5 p-6 sm:p-8 rounded-3xl bg-slate-50/80 border border-slate-200/90 shadow-sm space-y-6">
+          <div>
+            <h3 class="text-2xl font-black text-slate-950 font-heading tracking-tight">
+              COESPSA C.I. S.A.S.
+            </h3>
+            <p class="text-sm text-slate-500 mt-1 font-normal">
+              Company Structural Engineering Civil, Mechanical and Naval C.I. S.A.S.
+            </p>
+          </div>
+          
+          <div class="space-y-3.5">
+            <!-- 1. PBX Conmutador Principal -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4 hover:border-blue-300 hover:shadow-sm transition-all">
+              <div class="text-blue-600 shrink-0">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs text-slate-500 block font-normal leading-tight">
+                  Línea PBX Conmutador Principal
+                </span>
+                <a href="tel:5715402267" class="text-slate-950 font-black text-lg sm:text-xl tracking-tight hover:text-blue-600 transition-colors block mt-0.5">
+                  (571) 540 2267
+                </a>
+              </div>
+            </div>
+
+            <!-- 2. PBX Secundaria -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4 hover:border-blue-300 hover:shadow-sm transition-all">
+              <div class="text-blue-600 shrink-0">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs text-slate-500 block font-normal leading-tight">
+                  Línea PBX Secundaria
+                </span>
+                <a href="tel:5715407200" class="text-slate-950 font-black text-lg sm:text-xl tracking-tight hover:text-blue-600 transition-colors block mt-0.5">
+                  (571) 540 7200
+                </a>
+              </div>
+            </div>
+
+            <!-- 3. Servicio al Cliente & Cotizaciones -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4 hover:border-sky-300 hover:shadow-sm transition-all">
+              <div class="text-sky-600 shrink-0">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs text-slate-500 block font-normal leading-tight">
+                  Servicio al Cliente & Cotizaciones
+                </span>
+                <a href="mailto:asistente@grupocoespsa.com" class="text-blue-600 font-bold text-sm sm:text-base hover:underline block mt-0.5 break-all">
+                  asistente@grupocoespsa.com
+                </a>
+              </div>
+            </div>
+
+            <!-- 4. Gerencia General -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4 hover:border-amber-300 hover:shadow-sm transition-all">
+              <div class="text-amber-500 shrink-0">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs text-slate-500 block font-normal leading-tight">
+                  Gerencia General
+                </span>
+                <a href="mailto:iltpdirector@grupocoespsa.com" class="text-slate-900 font-bold text-sm sm:text-base hover:underline block mt-0.5 break-all">
+                  iltpdirector@grupocoespsa.com
+                </a>
+              </div>
+            </div>
+
+            <!-- 5. Domicilio Principal -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex items-center gap-4 hover:border-blue-300 hover:shadow-sm transition-all">
+              <div class="text-blue-600 shrink-0">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs text-slate-500 block font-normal leading-tight">
+                  Domicilio Principal
+                </span>
+                <span class="text-slate-950 font-black text-sm sm:text-base block mt-0.5">
+                  Bogotá D.C., Colombia
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-blue-50/70 border border-blue-200/70 flex items-center gap-3 text-xs text-blue-900 font-medium">
+            <i data-lucide="shield-check" class="w-5 h-5 text-blue-600 shrink-0"></i>
+            <span>
+              Tratamiento confidencial de propuestas técnicas y cumplimiento de la Ley de Protección de Datos (Habeas Data).
+            </span>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-md">
+          <div id="form-container">
+            <h3 class="text-xl font-bold text-slate-950 mb-1 font-heading">Formulario Oficial de Requerimientos</h3>
+            <p class="text-xs text-slate-500 mb-6">Diligencie su solicitud técnica o cotización formal.</p>
+
+            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Empresa o Razón Social *</label>
+                  <input type="text" id="company" required placeholder="Ej: Consorcio Minero Andino S.A." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Persona de Contacto *</label>
+                  <input type="text" id="person" required placeholder="Ej: Ing. Carlos Rivas" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Correo Electrónico *</label>
+                  <input type="email" id="email" required placeholder="contacto@suempresa.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Teléfono / Celular *</label>
+                  <input type="tel" id="phone" required placeholder="+57 310 123 4567" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Gerencia de Destino *</label>
+                  <select id="division" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white">
+                    <option value="Técnica y Transporte">Gerencia Técnica y Transporte</option>
+                    <option value="Seguridad y Operaciones">Gerencia de Seguridad y Operaciones</option>
+                    <option value="Desarrollo de Proyectos">Gerencia de Desarrollo de Proyectos</option>
+                    <option value="Administrativa y Financiera">Gerencia Administrativa y Financiera</option>
+                    <option value="Gerencia General">Gerencia General</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Tipo de Servicio *</label>
+                  <select id="service" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white">
+                    <option value="Obras Civiles">Obras Civiles, Puentes y Hangares</option>
+                    <option value="Transporte Pesado">Transporte Pesado, Cisternas y Graneles</option>
+                    <option value="Desguace Naval">Desguace, Reciclaje Naval y Acero</option>
+                    <option value="Otro">Otro Requerimiento</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Descripción del Requerimiento / Alcance Técnico *</label>
+                <textarea id="message" required rows="4" placeholder="Describa el origen y destino de carga, volumen, tipo de obra civil..." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3.5 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white resize-y"></textarea>
+              </div>
+
+              <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span class="text-xs text-slate-500">Respuesta formal con radicado oficial en &lt; 24h</span>
+                <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-md transition-all">
+                  Radicar Solicitud Oficial
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Success box -->
+          <div id="success-box" class="hidden p-6 text-center space-y-4">
+            <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto">
+              <i data-lucide="check-circle-2" class="w-7 h-7"></i>
+            </div>
+            <h4 class="text-xl font-bold text-slate-950 font-heading">¡Solicitud Radicada Exitosamente!</h4>
+            <p class="text-xs text-slate-600">Número de Radicado: <strong id="radicado-text" class="text-blue-700 font-mono text-sm"></strong></p>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Hemos registrado su requerimiento en el sistema corporativo de COESPSA C.I. S.A.S. El equipo técnico se pondrá en contacto a la brevedad.
+            </p>
+            <button onclick="resetContactForm()" class="px-5 py-2 bg-blue-600 text-white text-xs font-bold rounded-xl">Radicar otra consulta</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-slate-900 border-t border-slate-800 text-slate-300 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-800/80">
+      <div class="flex items-center gap-3">
+        <div class="h-12 sm:h-14 w-auto px-2.5 py-1 rounded-xl bg-white flex items-center justify-center shadow-xs border border-slate-700">
+          <img src="assets/aistudio/imagen_96ed2a7a.png" onerror="handleImgError(this)" alt="COESPSA Engineering Company Logo" class="h-full w-auto max-w-[170px] object-contain">
+        </div>
+        <div>
+          <span class="text-sm font-bold text-white font-heading">COESPSA C.I. S.A.S.</span>
+          <p class="text-[11px] text-slate-400">Company Structural Engineering Civil, Mechanical and Naval C.I. S.A.S.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>PBX: <strong class="text-white">(571) 540 2267 / 540 7200</strong></span>
+        <span>•</span>
+        <span>Bogotá D.C., Colombia</span>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-[11px] text-slate-500">
+      © <script>document.write(new Date().getFullYear())</script> COESPSA C.I. S.A.S. Todos los derechos reservados. Comercializadora Internacional.
+    </div>
+  </footer>
+
+  <!-- ================= LIGHTBOX MODAL ================= -->
+  <div id="image-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/85 backdrop-blur-md p-4" onclick="closeModal()">
+    <div class="relative max-w-5xl w-full bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between px-6 py-4 bg-slate-800 border-b border-slate-700">
+        <div>
+          <h3 id="modal-title" class="text-base font-bold text-white"></h3>
+          <p id="modal-subtitle" class="text-xs text-slate-400"></p>
+        </div>
+        <button onclick="closeModal()" class="p-2 text-slate-300 hover:text-white bg-slate-700 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-4 flex items-center justify-center bg-slate-950 min-h-[350px]">
+        <img id="modal-img" src="" alt="Vista previa" class="max-h-[75vh] w-auto object-contain rounded-lg shadow-2xl border border-slate-800">
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Modal handling
+    function openModal(src, title, subtitle) {
+      document.getElementById('modal-img').src = src;
+      document.getElementById('modal-title').innerText = title || 'Archivo Técnico COESPSA';
+      document.getElementById('modal-subtitle').innerText = subtitle || '';
+      const modal = document.getElementById('image-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('image-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Image fallback handler: tries public/ path, then high-res industrial CDN photos
+    function handleImgError(img) {
+      if (!img.dataset.triedPublic) {
+        img.dataset.triedPublic = '1';
+        var original = img.getAttribute('src') || '';
+        img.src = original.startsWith('/') ? original.substring(1) : ('public/' + original);
+        return;
+      }
+      if (!img.dataset.triedCdn) {
+        img.dataset.triedCdn = '1';
+        var src = (img.getAttribute('src') || '').toLowerCase();
+        if (src.includes('bridge') || src.includes('civil')) {
+          img.src = 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=1200&q=80';
+        } else if (src.includes('excavator') || src.includes('machinery')) {
+          img.src = 'https://images.unsplash.com/photo-1579829366248-204fe8413f31?auto=format&fit=crop&w=1200&q=80';
+        } else if (src.includes('tanker') || src.includes('transport') || src.includes('fleet')) {
+          img.src = 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=80';
+        } else if (src.includes('naval') || src.includes('shipyard') || src.includes('dismantling') || src.includes('cutting')) {
+          img.src = 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80';
+        } else if (src.includes('operations') || src.includes('control') || src.includes('room')) {
+          img.src = 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80';
+        } else {
+          img.src = 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80';
+        }
+      }
+    }
+
+    // Form submit handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const radNum = 'RAD-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('radicado-text').innerText = radNum;
+      document.getElementById('form-container').classList.add('hidden');
+      document.getElementById('success-box').classList.remove('hidden');
+    }
+
+    function resetContactForm() {
+      document.getElementById('contact-form').reset();
+      document.getElementById('form-container').classList.remove('hidden');
+      document.getElementById('success-box').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
