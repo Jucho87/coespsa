@@ -160,9 +160,7 @@ export const ENGINEERING_LINES = [
     subtitle: 'Megaproyectos de Transporte, Hangares y Movimiento de Tierras',
     heroImage: '/assets/aistudio/imagen_8b182caa.png',
     secondaryImages: [
-      '/assets/aistudio/imagen_8b182caa.png',
-      '/assets/curated/civil_hangar.jpg',
-      '/assets/curated/civil_excavator.jpg'
+      '/assets/aistudio/imagen_8b182caa.png'
     ],
     summary: 'Construcción de viaductos, puentes vehiculares de acero y concreto, naves industriales tipo hangar, bodegas logísticas y explanaciones masivas con maquinaria pesada de última generación.',
     capabilities: [
@@ -198,9 +196,7 @@ export const ENGINEERING_LINES = [
     subtitle: 'Desmantelamiento de Embarcaciones, Reciclaje de Acero y Reparaciones',
     heroImage: '/assets/aistudio/imagen_5e9efe17.png',
     secondaryImages: [
-      '/assets/aistudio/imagen_5e9efe17.png',
-      '/assets/curated/naval_cutting.jpg',
-      '/assets/curated/naval_shipyard.jpg'
+      '/assets/aistudio/imagen_5e9efe17.png'
     ],
     summary: 'Pioneros en Colombia en la técnica de reciclaje ecológico y desguace controlado de embarcaciones mayores (remolcadores, barcazas, buques de carga), cumpliendo los lineamientos del Convenio de Hong Kong para el reciclaje seguro y ambientalmente racional de buques.',
     capabilities: [

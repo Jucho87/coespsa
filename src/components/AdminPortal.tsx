@@ -14,7 +14,6 @@ import {
   Search, 
   Filter, 
   ChevronRight,
-  Eye,
   Check,
   Building2,
   Mail,
@@ -221,15 +220,6 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                 </select>
               </div>
 
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => onOpenImage('/assets/extracted/operations_control_room.jpg', 'Sala de Control y Monitoreo GPS 24/7', 'Operación satelital COESPSA C.I. S.A.S.')}
-                  className="text-xs text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1"
-                >
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>Ver Centro de Control Satelital ↗</span>
-                </button>
-              </div>
             </div>
 
             {/* Fleet Table */}
