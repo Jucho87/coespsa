@@ -5,9 +5,12 @@ import {
   Menu, 
   X, 
   Send, 
-  ChevronRight
+  ChevronRight,
+  Moon,
+  Sun
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
+import { useActiveSection } from './ScrollIndicator';
 
 interface NavbarProps {
   onNavigateTo: (sectionId: string) => void;
@@ -16,6 +19,13 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onNavigateTo }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
+  const activeSection = useActiveSection();
+  const [dark, setDark] = React.useState(() => localStorage.getItem('theme') === 'dark');
+
+  React.useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark);
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }, [dark]);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -84,14 +94,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateTo }) => {
           className="flex items-center gap-3.5 group text-left py-0.5"
         >
           <div className="h-12 sm:h-14 w-auto px-2 py-1 rounded-xl bg-white border border-slate-200/90 shadow-xs flex items-center justify-center group-hover:border-blue-400 group-hover:shadow-sm transition-all">
-            <img 
-              src="/assets/aistudio/imagen_96ed2a7a.png" 
-              alt="COESPSA Engineering Company Logo" 
-              className="h-full w-auto max-w-[160px] sm:max-w-[190px] object-contain"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = '/assets/aistudio/imagen_552f7f2d.png';
-              }}
-            />
+            <picture className="contents">
+              <source srcSet="/assets/aistudio/imagen_96ed2a7a.webp" type="image/webp" />
+              <img width={800} height={450} 
+                src="/assets/aistudio/imagen_96ed2a7a.png" 
+                alt="COESPSA Engineering Company Logo" 
+                className="h-full w-auto max-w-[160px] sm:max-w-[190px] object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/assets/aistudio/imagen_552f7f2d.png';
+                }}
+              />
+            </picture>
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
@@ -111,7 +124,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateTo }) => {
             <button
               key={link.label}
               onClick={() => handleLinkClick(link.href)}
-              className="px-3 py-1.5 text-sm font-semibold text-slate-700 hover:text-blue-700 hover:bg-slate-100 rounded-lg transition-colors"
+              aria-current={activeSection === link.href ? 'true' : undefined}
+              className={`px-3 py-1.5 text-sm rounded-lg transition-colors hover:bg-slate-100 ${
+                activeSection === link.href
+                  ? 'text-blue-600 font-bold border-b-2 border-blue-600 rounded-b-none'
+                  : 'font-semibold text-slate-700 hover:text-blue-700'
+              }`}
             >
               {link.label}
             </button>
@@ -119,10 +137,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateTo }) => {
         </nav>
 
         {/* Action Button: Cotizar / Contacto */}
-        <div className="hidden sm:flex items-center gap-3">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setDark((d) => !d)}
+            aria-label={dark ? 'Activar modo claro' : 'Activar modo oscuro'}
+            title={dark ? 'Modo claro' : 'Modo oscuro'}
+            className="p-2 rounded-lg border border-slate-300 bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+          >
+            {dark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
           <button
             onClick={() => handleLinkClick('contacto')}
-            className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs tracking-wide rounded-xl shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 transition-all hover:-translate-y-0.5"
+            className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs tracking-wide rounded-xl shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 transition-all hover:-translate-y-0.5"
           >
             <Send className="w-3.5 h-3.5" />
             <span>Cotizar / Contacto</span>

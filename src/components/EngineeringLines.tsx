@@ -43,7 +43,7 @@ export const EngineeringLines: React.FC<EngineeringLinesProps> = ({
   };
 
   return (
-    <section id="ingenieria" className="py-20 bg-white border-b border-slate-200 relative">
+    <section id="ingenieria" className="reveal py-20 bg-white border-b border-slate-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
@@ -136,7 +136,7 @@ export const EngineeringLines: React.FC<EngineeringLinesProps> = ({
                   onClick={() => onSelectServiceForContact(getServiceMapping(currentLine.id))}
                   className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-md transition-all"
                 >
-                  <span>Cotizar este Servicio</span>
+                  <span>Solicitar cotización</span>
                   <ChevronRight className="w-4 h-4" />
                 </button>
                 <span className="text-xs text-slate-500 font-medium">
@@ -150,13 +150,13 @@ export const EngineeringLines: React.FC<EngineeringLinesProps> = ({
               {/* Primary Hero Photo */}
               <div 
                 className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-slate-100 border border-slate-200 shadow-md cursor-pointer group"
-                onClick={() => onOpenImage(
+                role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onOpenImage(
                   currentLine.heroImage, 
                   currentLine.title, 
                   currentLine.subtitle
                 )}
               >
-                <img
+                <img loading="lazy" decoding="async"
                   src={currentLine.heroImage}
                   alt={currentLine.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -185,14 +185,14 @@ export const EngineeringLines: React.FC<EngineeringLinesProps> = ({
                 {currentLine.secondaryImages.map((imgSrc, idx) => (
                   <div
                     key={idx}
-                    onClick={() => onOpenImage(
+                    role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onOpenImage(
                       imgSrc, 
                       `${currentLine.title} - Registro ${idx + 1}`,
                       'Evidencia fotográfica oficial COESPSA C.I. S.A.S.'
                     )}
                     className="relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-100 border border-slate-200 hover:border-blue-500 cursor-pointer group transition-all shadow-xs"
                   >
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={imgSrc}
                       alt={`Registro fotográfico ${idx + 1}`}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"

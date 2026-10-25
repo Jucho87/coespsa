@@ -40,7 +40,7 @@ export const CorporateDivisions: React.FC<CorporateDivisionsProps> = ({
   };
 
   return (
-    <section id="gerencias" className="py-20 bg-slate-50 border-b border-slate-200 relative">
+    <section id="gerencias" className="reveal py-20 bg-slate-50 border-b border-slate-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-12">
@@ -171,7 +171,7 @@ export const CorporateDivisions: React.FC<CorporateDivisionsProps> = ({
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div className="relative rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm group">
                 <div className="aspect-[4/3] w-full overflow-hidden bg-slate-100">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={activeDivision.image}
                     alt={activeDivision.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

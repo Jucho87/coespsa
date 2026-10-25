@@ -21,7 +21,7 @@ export const OperationsAndFleet: React.FC<OperationsAndFleetProps> = ({
   onNavigateToContact
 }) => {
   return (
-    <section id="operaciones" className="py-20 bg-slate-50 border-b border-slate-200 relative">
+    <section id="operaciones" className="reveal py-20 bg-slate-50 border-b border-slate-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
@@ -93,13 +93,13 @@ export const OperationsAndFleet: React.FC<OperationsAndFleetProps> = ({
           <div className="lg:col-span-5">
             <div 
               className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-900 border border-slate-200 shadow-md cursor-pointer group"
-              onClick={() => onOpenImage(
+              role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onOpenImage(
                 '/assets/curated/operations_control_room.jpg',
                 'Sala de Mando y Monitoreo Satelital 24/7',
                 'Pantallas de telemetría de ruta, velocidad y sensores de seguridad'
               )}
             >
-              <img
+              <img loading="lazy" decoding="async" width={1400} height={933}
                 src="/assets/curated/operations_control_room.jpg"
                 alt="Sala de Monitoreo GPS"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

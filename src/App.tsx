@@ -15,9 +15,13 @@ import { StrategicPartners } from './components/StrategicPartners';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ImageModal } from './components/ImageModal';
+import { ScrollIndicator, useReveal } from './components/ScrollIndicator';
+import { CookieBanner } from './components/CookieBanner';
+import { WhatsAppButton } from './components/WhatsAppButton';
 import { ContactSubmission } from './types';
 
 export default function App() {
+  useReveal();
   const [preselectedDivision, setPreselectedDivision] = React.useState<ContactSubmission['targetDivision']>('transporte');
   const [preselectedService, setPreselectedService] = React.useState<ContactSubmission['serviceCategory']>('civil');
 
@@ -63,18 +67,8 @@ export default function App() {
     handleNavigateTo('contacto');
   };
 
-  const handleNewSubmission = (newEntry: ContactSubmission) => {
-    try {
-      const existing = localStorage.getItem('coespsa_submissions');
-      const list = existing ? JSON.parse(existing) : [];
-      localStorage.setItem('coespsa_submissions', JSON.stringify([newEntry, ...list]));
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
       {/* Executive Clean Light Navbar */}
       <Navbar onNavigateTo={handleNavigateTo} />
 
@@ -115,11 +109,14 @@ export default function App() {
 
         {/* 8. Contáctenos y Radicación de Proyectos */}
         <ContactSection
-          onNewSubmission={handleNewSubmission}
           preselectedDivision={preselectedDivision}
           preselectedService={preselectedService}
         />
       </main>
+
+      <ScrollIndicator />
+      <WhatsAppButton />
+      <CookieBanner />
 
       {/* Corporate Footer */}
       <Footer onNavigateTo={handleNavigateTo} />

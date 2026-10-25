@@ -5,7 +5,6 @@ import {
   MapPin, 
   Send, 
   CheckCircle2, 
-  Clock, 
   ShieldCheck, 
   AlertCircle,
   Headphones,
@@ -15,13 +14,11 @@ import { COMPANY_INFO } from '../data/companyData';
 import { ContactSubmission } from '../types';
 
 interface ContactSectionProps {
-  onNewSubmission: (submission: ContactSubmission) => void;
   preselectedDivision?: ContactSubmission['targetDivision'];
   preselectedService?: ContactSubmission['serviceCategory'];
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({
-  onNewSubmission,
   preselectedDivision = 'transporte',
   preselectedService = 'civil'
 }) => {
@@ -42,6 +39,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   const [submittedRadicado, setSubmittedRadicado] = React.useState<string | null>(null);
   const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitted, setSubmitted] = React.useState(false);
+
+  const validate = (d: typeof formData): Record<string, string> => {
+    const errs: Record<string, string> = {};
+    if (!d.contactPerson.trim()) errs.contactPerson = 'Ingrese el nombre de contacto.';
+    if (!d.email.trim()) errs.email = 'Ingrese un correo electrónico.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) errs.email = 'Correo electrónico inválido.';
+    if (!d.phone.trim()) errs.phone = 'Ingrese un teléfono de contacto.';
+    if (!d.message.trim()) errs.message = 'Describa su requerimiento.';
+    return errs;
+  };
+  const errors = submitted ? validate(formData) : {};
+  const fieldCls = (k: string) =>
+    !submitted ? 'border-slate-300' : errors[k] ? 'border-red-500 ring-1 ring-red-200' : 'border-emerald-500';
+  const fieldErr = (k: string) =>
+    errors[k] ? <p id={`err-${k}`} className="mt-1 text-[11px] text-red-600 font-medium">{errors[k]}</p> : null;
 
   React.useEffect(() => {
     if (preselectedDivision) {
@@ -55,46 +68,46 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     }
   }, [preselectedService]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
+    setSubmitted(true);
 
-    if (!formData.companyName.trim() || !formData.contactPerson.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()) {
+    if (Object.keys(validate(formData)).length > 0 || !formData.companyName.trim() || !formData.contactPerson.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()) {
       setErrorMessage('Por favor complete los campos obligatorios para radicar su requerimiento corporativo.');
       return;
     }
 
     setIsSubmitting(true);
+    const radicadoNum = `RAD-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+    const body = new FormData();
+    body.append('radicado', radicadoNum);
+    body.append('website', (e.currentTarget as HTMLFormElement).querySelector<HTMLInputElement>('input[name="website"]')?.value ?? '');
+    body.append('nombre', formData.contactPerson);
+    body.append('empresa', formData.companyName);
+    body.append('documento', formData.documentId);
+    body.append('email', formData.email);
+    body.append('telefono', formData.phone);
+    body.append('ciudad', formData.city);
+    body.append('gerencia', formData.targetDivision);
+    body.append('servicio', formData.serviceCategory);
+    body.append('mensaje', formData.message);
 
-    setTimeout(() => {
-      const radicadoNum = `RAD-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
-      const now = new Date();
-      const formattedDate = `${now.toLocaleDateString('es-CO')} ${now.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' })}`;
-
-      const newEntry: ContactSubmission = {
-        id: radicadoNum,
-        timestamp: formattedDate,
-        companyName: formData.companyName,
-        contactPerson: formData.contactPerson,
-        documentId: formData.documentId || 'No aportado',
-        email: formData.email,
-        phone: formData.phone,
-        city: formData.city,
-        targetDivision: formData.targetDivision,
-        serviceCategory: formData.serviceCategory,
-        message: formData.message,
-        status: 'nuevo',
-        priority: formData.priority
-      };
-
-      onNewSubmission(newEntry);
+    try {
+      const res = await fetch('/mail.php', { method: 'POST', body });
+      const data = await res.json().catch(() => ({ ok: false }));
+      if (!res.ok || !data.ok) throw new Error(data.error || 'send_failed');
       setSubmittedRadicado(radicadoNum);
+    } catch {
+      setErrorMessage(`No fue posible enviar su solicitud. Intente nuevamente o escríbanos a ${COMPANY_INFO.emailCustomerService}.`);
+    } finally {
       setIsSubmitting(false);
-    }, 500);
+    }
   };
 
   const handleResetForm = () => {
     setSubmittedRadicado(null);
+    setSubmitted(false);
     setFormData({
       companyName: '',
       contactPerson: '',
@@ -111,7 +124,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   };
 
   return (
-    <section id="contacto" className="py-20 bg-white border-b border-slate-200 relative">
+    <section id="contacto" className="reveal py-20 bg-white border-b border-slate-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-12">
@@ -156,7 +169,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       href="tel:5715402267" 
                       className="text-slate-950 font-black text-lg sm:text-xl tracking-tight hover:text-blue-600 transition-colors block mt-0.5"
                     >
-                      (571) 540 2267
+                      (571) 5402267
                     </a>
                   </div>
                 </div>
@@ -174,7 +187,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       href="tel:5715407200" 
                       className="text-slate-950 font-black text-lg sm:text-xl tracking-tight hover:text-blue-600 transition-colors block mt-0.5"
                     >
-                      (571) 540 7200
+                      (571) 5407200
                     </a>
                   </div>
                 </div>
@@ -189,10 +202,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       Servicio al Cliente & Cotizaciones
                     </span>
                     <a 
-                      href="mailto:asistente@grupocoespsa.com" 
+                      href="mailto:servicioalclientecoespsa@gmail.com" 
                       className="text-blue-600 font-bold text-sm sm:text-base hover:underline block mt-0.5 break-all"
                     >
-                      asistente@grupocoespsa.com
+                      servicioalclientecoespsa@gmail.com
                     </a>
                   </div>
                 </div>
@@ -207,10 +220,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       Gerencia General
                     </span>
                     <a 
-                      href="mailto:iltpdirector@grupocoespsa.com" 
+                      href="mailto:coespsagerencia-1963@hotmail.com" 
                       className="text-slate-900 font-bold text-sm sm:text-base hover:underline block mt-0.5 break-all"
                     >
-                      iltpdirector@grupocoespsa.com
+                      coespsagerencia-1963@hotmail.com
                     </a>
                   </div>
                 </div>
@@ -289,9 +302,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               </div>
             ) : (
               <form 
+                noValidate
                 onSubmit={handleSubmit}
                 className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-md space-y-5"
               >
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
                 <div>
                   <h3 className="text-xl font-bold text-slate-950 mb-1 font-heading">
                     Formulario Oficial de Requerimientos Corporativos
@@ -302,7 +317,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </div>
 
                 {errorMessage && (
-                  <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs flex items-center gap-2 font-medium">
+                  <div role="alert" className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs flex items-center gap-2 font-medium">
                     <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
                     <span>{errorMessage}</span>
                   </div>
@@ -311,10 +326,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 {/* Company & Person */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label htmlFor="cf-company" className="block text-xs font-bold text-slate-700 mb-1">
                       Empresa o Razón Social <span className="text-blue-600">*</span>
                     </label>
                     <input
+                      id="cf-company"
                       type="text"
                       required
                       placeholder="Ej: Consorcio Minero Andino S.A."
@@ -325,27 +341,32 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label htmlFor="cf-contact" className="block text-xs font-bold text-slate-700 mb-1">
                       Persona de Contacto y Cargo <span className="text-blue-600">*</span>
                     </label>
                     <input
+                      id="cf-contact"
                       type="text"
                       required
                       placeholder="Ej: Ing. Carlos Rivas (Dir. Operaciones)"
                       value={formData.contactPerson}
                       onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium"
+                      className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium ${fieldCls('contactPerson')}`}
+                      aria-invalid={!!errors.contactPerson}
+                      aria-describedby={errors.contactPerson ? 'err-contactPerson' : undefined}
                     />
+                    {fieldErr('contactPerson')}
                   </div>
                 </div>
 
                 {/* Document & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label htmlFor="cf-document" className="block text-xs font-bold text-slate-700 mb-1">
                       NIT / Documento de Identidad
                     </label>
                     <input
+                      id="cf-document"
                       type="text"
                       placeholder="Ej: 900.123.456-7"
                       value={formData.documentId}
@@ -355,41 +376,50 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label htmlFor="cf-email" className="block text-xs font-bold text-slate-700 mb-1">
                       Correo Electrónico Corporativo <span className="text-blue-600">*</span>
                     </label>
                     <input
+                      id="cf-email"
                       type="email"
                       required
                       placeholder="contacto@suempresa.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium"
+                      className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium ${fieldCls('email')}`}
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? 'err-email' : undefined}
                     />
+                    {fieldErr('email')}
                   </div>
                 </div>
 
                 {/* Phone & City */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label htmlFor="cf-phone" className="block text-xs font-bold text-slate-700 mb-1">
                       Teléfono / Móvil de Contacto <span className="text-blue-600">*</span>
                     </label>
                     <input
+                      id="cf-phone"
                       type="tel"
                       required
                       placeholder="+57 310 123 4567"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium"
+                      className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium ${fieldCls('phone')}`}
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={errors.phone ? 'err-phone' : undefined}
                     />
+                    {fieldErr('phone')}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label htmlFor="cf-city" className="block text-xs font-bold text-slate-700 mb-1">
                       Ciudad / Departamento / País <span className="text-blue-600">*</span>
                     </label>
                     <input
+                      id="cf-city"
                       type="text"
                       required
                       placeholder="Bogotá D.C., Colombia"
@@ -403,12 +433,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 {/* Routing: Division & Category */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label htmlFor="cf-division" className="block text-xs font-bold text-slate-700 mb-1">
                       Gerencia de Enlace Receptora <span className="text-blue-600">*</span>
                     </label>
                     <select
+                      id="cf-division"
                       value={formData.targetDivision}
-                      onChange={(e) => setFormData({ ...formData, targetDivision: e.target.value as any })}
+                      onChange={(e) => setFormData({ ...formData, targetDivision: e.target.value as ContactSubmission['targetDivision'] })}
                       className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white font-medium"
                     >
                       <option value="transporte">Gerencia Técnica y Transporte</option>
@@ -420,12 +451,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                    <label htmlFor="cf-service" className="block text-xs font-bold text-slate-700 mb-1">
                       Línea o Categoría del Servicio <span className="text-blue-600">*</span>
                     </label>
                     <select
+                      id="cf-service"
                       value={formData.serviceCategory}
-                      onChange={(e) => setFormData({ ...formData, serviceCategory: e.target.value as any })}
+                      onChange={(e) => setFormData({ ...formData, serviceCategory: e.target.value as ContactSubmission['serviceCategory'] })}
                       className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white font-medium"
                     >
                       <option value="civil">Obras Civiles, Puentes y Hangares</option>
@@ -440,17 +472,21 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
                 {/* Scope & Message */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                  <label htmlFor="cf-message" className="block text-xs font-bold text-slate-700 mb-1">
                     Descripción del Requerimiento / Alcance Técnico <span className="text-blue-600">*</span>
                   </label>
                   <textarea
+                    id="cf-message"
                     required
                     rows={4}
                     placeholder="Describa el origen y destino de carga, volumen a transportar, tipo de obra civil o buque para desguace..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium resize-y"
+                    className={`w-full bg-slate-50 border rounded-xl p-3.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all font-medium resize-y ${fieldCls('message')}`}
+                      aria-invalid={!!errors.message}
+                      aria-describedby={errors.message ? 'err-message' : undefined}
                   />
+                    {fieldErr('message')}
                 </div>
 
                 {/* Submit button */}

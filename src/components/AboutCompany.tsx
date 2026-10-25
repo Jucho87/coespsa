@@ -20,8 +20,18 @@ export const AboutCompany: React.FC<AboutCompanyProps> = ({ onOpenImage }) => {
   const [activeTab, setActiveTab] = React.useState<'mision_vision' | 'hseq' | 'legal'>('mision_vision');
 
   return (
-    <section id="empresa" className="py-20 bg-white border-b border-slate-200 relative">
+    <section id="empresa" className="reveal py-20 bg-white border-b border-slate-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* KPI strip */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px mb-12 rounded-2xl overflow-hidden bg-blue-500 shadow-md">
+          {[['🏗️', '+25', 'años'], ['📋', '+300', 'proyectos'], ['🚛', '+80', 'vehículos'], ['📍', '7', 'departamentos']].map(([icon, n, label]) => (
+            <div key={label} className="bg-blue-600 text-white p-5 text-center">
+              <div className="text-3xl sm:text-4xl font-extrabold font-heading"><span aria-hidden="true">{icon} </span>{n}</div>
+              <div className="text-xs sm:text-sm uppercase tracking-wide text-blue-100 mt-1">{label}</div>
+            </div>
+          ))}
+        </div>
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
@@ -85,10 +95,7 @@ export const AboutCompany: React.FC<AboutCompanyProps> = ({ onOpenImage }) => {
                 Nuestra Misión
               </h3>
               <p className="text-slate-700 leading-relaxed text-sm sm:text-base mb-6">
-                Brindar soluciones integrales de alta ingeniería en los sectores de <strong>Ingeniería Civil</strong>, 
-                <strong>Transporte de Carga Pesada y Carga Especializada</strong>, e <strong>Ingeniería Naval</strong> con 
-                énfasis en el desguace y reciclaje sostenible de buques, garantizando la máxima confiabilidad operativa, 
-                cumplimiento riguroso de normativas y el resguardo del entorno socioambiental.
+                Brindar <strong>“Servicios de Ingeniería Civil, Naval y de Transporte Pesado”</strong>, desde la Gerencia, Administración, Comercialización, Transformación, Planeación y Desarrollo de Proyectos. Para lograr ser un motor de fortalecimiento y prosperidad de la industria, procurando el desarrollo apropiado y equilibrado. Manteniendo comunicación permanente con los diferentes entes, cumpliendo con las políticas establecidas en el sector, contribuyendo así con el desarrollo regional, nacional e internacional.
               </p>
               <div className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-700 font-medium">
                 <div className="flex items-center gap-2.5">
@@ -115,10 +122,7 @@ export const AboutCompany: React.FC<AboutCompanyProps> = ({ onOpenImage }) => {
                 Nuestra Visión
               </h3>
               <p className="text-slate-700 leading-relaxed text-sm sm:text-base mb-6">
-                Consolidarnos como la empresa líder en Colombia y referente de primer orden en el ámbito 
-                panamericano en <strong>ingeniería estructural integrada</strong>, <strong>logística de carga pesada</strong> e 
-                <strong>industria de desmantelamiento naval sostenible</strong>, distinguiéndonos por la excelencia técnica, 
-                la innovación continua y sólidas alianzas de inversión internacional.
+                <strong>“Ser una empresa altamente competitiva con innovación y tecnología de punta en Servicios de Ingeniería y Transporte”</strong>, brindando soluciones integrales para la satisfacción de nuestros clientes. Ampliando cada día la cobertura de servicios, explorando e investigando los diferentes avances de la industria a nivel nacional e internacional, para lograr un mejor desarrollo de los proyectos y el fortalecimiento de la Empresa, siendo generadores de empleo y desarrollo.
               </p>
               <div className="space-y-2.5 pt-4 border-t border-slate-200 text-xs text-slate-700 font-medium">
                 <div className="flex items-center gap-2.5">
@@ -228,9 +232,9 @@ export const AboutCompany: React.FC<AboutCompanyProps> = ({ onOpenImage }) => {
                 </div>
                 <div 
                   className="rounded-xl overflow-hidden aspect-[16/10] bg-slate-100 cursor-pointer group"
-                  onClick={() => onOpenImage('/assets/aistudio/imagen_8b182caa.png', 'Infraestructura, Hangares y Obras Civiles COESPSA C.I. S.A.S.', 'Estructuras de hangares industriales, vías de acceso y movimiento masivo de tierras')}
+                  role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onOpenImage('/assets/aistudio/imagen_8b182caa.png', 'Infraestructura, Hangares y Obras Civiles COESPSA C.I. S.A.S.', 'Estructuras de hangares industriales, vías de acceso y movimiento masivo de tierras')}
                 >
-                  <img
+                  <img loading="lazy" decoding="async" width={1024} height={572}
                     src="/assets/aistudio/imagen_8b182caa.png"
                     alt="Infraestructura Industrial y Obras COESPSA"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
