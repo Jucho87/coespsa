@@ -228,9 +228,9 @@ export const AboutCompany: React.FC<AboutCompanyProps> = ({ onOpenImage }) => {
                 </div>
                 <div 
                   className="rounded-xl overflow-hidden aspect-[16/10] bg-slate-100 cursor-pointer group"
-                  onClick={() => onOpenImage('/assets/aistudio/imagen_8b182caa.png', 'Infraestructura, Hangares y Obras Civiles COESPSA C.I. S.A.S.', 'Estructuras de hangares industriales, vías de acceso y movimiento masivo de tierras')}
+                  role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onOpenImage('/assets/aistudio/imagen_8b182caa.png', 'Infraestructura, Hangares y Obras Civiles COESPSA C.I. S.A.S.', 'Estructuras de hangares industriales, vías de acceso y movimiento masivo de tierras')}
                 >
-                  <img
+                  <img loading="lazy" decoding="async" width={1024} height={572}
                     src="/assets/aistudio/imagen_8b182caa.png"
                     alt="Infraestructura Industrial y Obras COESPSA"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

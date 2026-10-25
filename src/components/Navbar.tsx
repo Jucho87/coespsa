@@ -84,14 +84,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateTo }) => {
           className="flex items-center gap-3.5 group text-left py-0.5"
         >
           <div className="h-12 sm:h-14 w-auto px-2 py-1 rounded-xl bg-white border border-slate-200/90 shadow-xs flex items-center justify-center group-hover:border-blue-400 group-hover:shadow-sm transition-all">
-            <img 
-              src="/assets/aistudio/imagen_96ed2a7a.png" 
-              alt="COESPSA Engineering Company Logo" 
-              className="h-full w-auto max-w-[160px] sm:max-w-[190px] object-contain"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = '/assets/aistudio/imagen_552f7f2d.png';
-              }}
-            />
+            <picture className="contents">
+              <source srcSet="/assets/aistudio/imagen_96ed2a7a.webp" type="image/webp" />
+              <img width={800} height={450} 
+                src="/assets/aistudio/imagen_96ed2a7a.png" 
+                alt="COESPSA Engineering Company Logo" 
+                className="h-full w-auto max-w-[160px] sm:max-w-[190px] object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/assets/aistudio/imagen_552f7f2d.png';
+                }}
+              />
+            </picture>
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-2">

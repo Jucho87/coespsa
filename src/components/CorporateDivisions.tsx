@@ -171,7 +171,7 @@ export const CorporateDivisions: React.FC<CorporateDivisionsProps> = ({
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div className="relative rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm group">
                 <div className="aspect-[4/3] w-full overflow-hidden bg-slate-100">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={activeDivision.image}
                     alt={activeDivision.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

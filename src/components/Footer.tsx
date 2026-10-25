@@ -29,14 +29,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTo }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="h-12 sm:h-14 w-auto px-2.5 py-1 rounded-xl bg-white flex items-center justify-center shadow-sm border border-slate-700">
-              <img 
-                src="/assets/aistudio/imagen_96ed2a7a.png" 
-                alt="COESPSA Engineering Company Logo" 
-                className="h-full w-auto max-w-[170px] object-contain"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/assets/aistudio/imagen_552f7f2d.png';
-                }}
-              />
+              <picture className="contents">
+                <source srcSet="/assets/aistudio/imagen_96ed2a7a.webp" type="image/webp" />
+                <img width={800} height={450} loading="lazy" decoding="async" 
+                  src="/assets/aistudio/imagen_96ed2a7a.png" 
+                  alt="COESPSA Engineering Company Logo" 
+                  className="h-full w-auto max-w-[170px] object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/assets/aistudio/imagen_552f7f2d.png';
+                  }}
+                />
+              </picture>
             </div>
             <div>
               <span className="text-sm font-bold text-white tracking-wide font-heading">

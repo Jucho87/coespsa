@@ -63,16 +63,6 @@ export default function App() {
     handleNavigateTo('contacto');
   };
 
-  const handleNewSubmission = (newEntry: ContactSubmission) => {
-    try {
-      const existing = localStorage.getItem('coespsa_submissions');
-      const list = existing ? JSON.parse(existing) : [];
-      localStorage.setItem('coespsa_submissions', JSON.stringify([newEntry, ...list]));
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
       {/* Executive Clean Light Navbar */}
@@ -115,7 +105,6 @@ export default function App() {
 
         {/* 8. Contáctenos y Radicación de Proyectos */}
         <ContactSection
-          onNewSubmission={handleNewSubmission}
           preselectedDivision={preselectedDivision}
           preselectedService={preselectedService}
         />

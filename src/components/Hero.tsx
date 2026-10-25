@@ -96,7 +96,7 @@ export const Hero: React.FC<HeroProps> = ({
             {/* 3 Engineering Pillars Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-slate-200">
               <div 
-                onClick={() => onNavigateTo('ingenieria')}
+                role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onNavigateTo('ingenieria')}
                 className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200 hover:border-blue-500 hover:shadow-md cursor-pointer transition-all group"
               >
                 <div className="p-2.5 rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
@@ -109,7 +109,7 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
 
               <div 
-                onClick={() => onNavigateTo('ingenieria')}
+                role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onNavigateTo('ingenieria')}
                 className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200 hover:border-blue-500 hover:shadow-md cursor-pointer transition-all group"
               >
                 <div className="p-2.5 rounded-lg bg-sky-50 text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition-colors">
@@ -122,7 +122,7 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
 
               <div 
-                onClick={() => onNavigateTo('ingenieria')}
+                role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onNavigateTo('ingenieria')}
                 className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200 hover:border-blue-500 hover:shadow-md cursor-pointer transition-all group"
               >
                 <div className="p-2.5 rounded-lg bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors">
@@ -160,13 +160,13 @@ export const Hero: React.FC<HeroProps> = ({
               {/* Main Photo (Authentic company fleet photo) */}
               <div 
                 className="relative rounded-xl overflow-hidden aspect-[16/10] bg-slate-100 cursor-pointer group border border-slate-200"
-                onClick={() => onOpenImage(
+                role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onOpenImage(
                   '/assets/aistudio/imagen_3404f9cd.png', 
                   'Flota Oficial de Transporte y Cisternas COESPSA', 
                   'Parque automotor propio, tractocamiones Freightliner y cisternas de carga pesada'
                 )}
               >
-                <img
+                <img width={765} height={1024}
                   src="/assets/aistudio/imagen_3404f9cd.png"
                   alt="Flota de Transporte Pesado COESPSA"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -181,10 +181,10 @@ export const Hero: React.FC<HeroProps> = ({
               {/* 3 Mini Thumbnails: Civil, Transporte, Naval */}
               <div className="grid grid-cols-3 gap-2.5 mt-2.5">
                 <div 
-                  onClick={() => onOpenImage('/assets/aistudio/imagen_8b182caa.png', 'Ingeniería Civil - Obras Viales, Hangares y Excavación')}
+                  role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onOpenImage('/assets/aistudio/imagen_8b182caa.png', 'Ingeniería Civil - Obras Viales, Hangares y Excavación')}
                   className="relative rounded-lg overflow-hidden aspect-[4/3] bg-slate-100 cursor-pointer border border-slate-200 hover:border-blue-500 transition-colors group shadow-xs"
                 >
-                  <img 
+                  <img width={1024} height={572} 
                     src="/assets/aistudio/imagen_8b182caa.png" 
                     alt="Ingeniería Civil" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
@@ -194,10 +194,10 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
 
                 <div 
-                  onClick={() => onOpenImage('/assets/aistudio/imagen_3404f9cd.png', 'Gerencia Técnica y Transporte - Flota de Cisternas')}
+                  role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onOpenImage('/assets/aistudio/imagen_3404f9cd.png', 'Gerencia Técnica y Transporte - Flota de Cisternas')}
                   className="relative rounded-lg overflow-hidden aspect-[4/3] bg-slate-100 cursor-pointer border border-slate-200 hover:border-blue-500 transition-colors group shadow-xs"
                 >
-                  <img 
+                  <img width={765} height={1024} 
                     src="/assets/aistudio/imagen_3404f9cd.png" 
                     alt="Flota de Transporte" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
@@ -207,10 +207,10 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
 
                 <div 
-                  onClick={() => onOpenImage('/assets/aistudio/imagen_5e9efe17.png', 'Ingeniería Naval - Desguace, Astillero y Reciclaje de Acero')}
+                  role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onOpenImage('/assets/aistudio/imagen_5e9efe17.png', 'Ingeniería Naval - Desguace, Astillero y Reciclaje de Acero')}
                   className="relative rounded-lg overflow-hidden aspect-[4/3] bg-slate-100 cursor-pointer border border-slate-200 hover:border-blue-500 transition-colors group shadow-xs"
                 >
-                  <img 
+                  <img width={782} height={1024} 
                     src="/assets/aistudio/imagen_5e9efe17.png" 
                     alt="Ingeniería Naval" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 

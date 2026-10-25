@@ -237,13 +237,13 @@ export const OrganigramViewer: React.FC<OrganigramViewerProps> = ({ onOpenImage 
 
               <div 
                 className="rounded-xl overflow-hidden aspect-[16/10] bg-slate-100 border border-slate-200 cursor-pointer group"
-                onClick={() => onOpenImage(
+                role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); } }} onClick={() => onOpenImage(
                   '/assets/curated/operations_control_room.jpg',
                   'Centro de Mando y Dirección Operativa COESPSA C.I. S.A.S.',
                   'Instalaciones de monitoreo y coordinación de gerencias'
                 )}
               >
-                <img
+                <img loading="lazy" decoding="async" width={1400} height={933}
                   src="/assets/curated/operations_control_room.jpg"
                   alt="Centro de Mando y Operaciones"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

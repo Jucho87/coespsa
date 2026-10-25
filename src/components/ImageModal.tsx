@@ -18,12 +18,23 @@ export const ImageModal: React.FC<ImageModalProps> = ({
 }) => {
   const [zoom, setZoom] = React.useState(1);
 
+  React.useEffect(() => {
+    if (!isOpen) return;
+    setZoom(1);
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isOpen, imageSrc, onClose]);
+
   if (!isOpen) return null;
 
   return (
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 animate-in fade-in duration-200"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={title}
     >
       <div 
         className="relative max-w-6xl w-full max-h-[94vh] flex flex-col bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden"
@@ -78,7 +89,10 @@ export const ImageModal: React.FC<ImageModalProps> = ({
               <Download className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
             <button
+              type="button"
               onClick={onClose}
+              aria-label="Cerrar"
+              autoFocus
               className="p-2 text-slate-300 hover:text-white hover:bg-red-500/20 hover:text-red-400 rounded-lg transition-colors ml-2"
               title="Cerrar (Esc)"
             >
