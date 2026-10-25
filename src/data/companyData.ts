@@ -2,15 +2,15 @@ import { FleetUnit, StrategicPartner, OrganigramNode } from '../types';
 
 export const COMPANY_INFO = {
   acronym: 'COESPSA C.I. S.A.S.',
-  fullName: 'Company Structural Engineering Civil, Mechanical and Naval C.I. S.A.S.',
+  fullName: 'COMPANY STRUCTURAL ENGINEERING CIVIL, MECHANICAL AND NAVAL C.I. S.A.S',
   legalType: 'Sociedad Comercial por Acciones Simplificada - Comercializadora Internacional',
   headquarters: 'Bogotá D.C., Colombia',
   address: 'Centro Empresarial Metropolitano, Bogotá D.C., Colombia',
-  pbx1: '(571) 540 2267',
-  pbx2: '(571) 540 7200',
-  pbxFormatted: '+57 (1) 540 2267 / 540 7200',
-  emailCustomerService: 'asistente@grupocoespsa.com',
-  emailManagement: 'iltpdirector@grupocoespsa.com',
+  pbx1: '(571) 5402267',
+  pbx2: '(571) 5407200',
+  pbxFormatted: '(571) 5402267 – (571) 5407200',
+  emailCustomerService: 'servicioalclientecoespsa@gmail.com',
+  emailManagement: 'coespsagerencia-1963@hotmail.com',
   motto: 'Excelencia estructural, logística integral y sostenibilidad panamericana',
   stats: [
     { label: 'Años de Experiencia y Solidez', value: '+25' },
@@ -28,27 +28,27 @@ export const DIVISIONS = [
     shortName: 'Técnica & Transporte',
     leadTitle: 'Dirección de Flota, Mantenimiento y Logística de Carga Pesada',
     image: '/assets/aistudio/imagen_3404f9cd.png',
-    description: 'Gestión integral del parque automotor pesado, unidades cisterna para líquidos e hidrocarburos, tolvas graneleras, camabajas para maquinaria y mantenimiento mecánico predictivo continuo.',
+    description: 'Se encarga de la Gerencia, Administración, Comercialización, Planeación y Desarrollo de los procesos inherentes a la movilización de transporte pesado.',
     departments: [
       {
         name: 'Departamento de Transporte',
-        role: 'Programación de despachos y asignación de tractomulas, tolvas y camabajas.',
-        focus: 'Gestión logística intermodal en corredores nacionales e internacionales.'
+        role: 'Se encarga de la Gerencia, Administración, Comercialización, Planeación y Desarrollo de los procesos inherentes a la movilización de transporte pesado.',
+        focus: 'Movilización de transporte pesado.'
       },
       {
         name: 'Departamento Técnico',
-        role: 'Ingeniería mecánica aplicada, peritaje técnico de estructuras vehiculares.',
-        focus: 'Mantenimiento preventivo, predictivo y correctivo con banco de pruebas.'
+        role: 'Encargada de la planeación y la logística de los diferentes proyectos.',
+        focus: 'Profesionales en las áreas de Ingeniería: Civil, Mecánica y Naval además de técnicos administrativos.'
       },
       {
         name: 'Dirección de Tráfico y Control',
-        role: 'Monitoreo de tiempos de recorrido, puntos de control en ruta y pesaje.',
-        focus: 'Cumplimiento de normatividad vial del Ministerio de Transporte.'
+        role: 'Ejerce la coordinación, elaboración y logística de las diferentes rutas.',
+        focus: 'Administrando el recurso técnico y humano.'
       },
       {
-        name: 'Patios y Talleres Especializados',
-        role: 'Infraestructura propia con fosas de engrase, tornos y bancos de soldadura.',
-        focus: 'Alistamiento 24/7 y diagnóstico computarizado de tren motriz.'
+        name: 'Coordinación Patios y Talleres',
+        role: 'Supervisa y controla los servicios de mantenimiento preventivo y correctivo que se realizan a los vehículos, verificando que se registren en el logbook de cada automotor.',
+        focus: 'Asistencia técnica remota y presencial según el tipo de falla que se presente.'
       }
     ],
     features: [
@@ -64,20 +64,20 @@ export const DIVISIONS = [
     shortName: 'Seguridad & Operaciones',
     leadTitle: 'Seguridad Integral, Resguardo en Ruta y Monitoreo Satelital 24/7',
     image: '/assets/curated/operations_control_room.jpg',
-    description: 'Custodia integral de la carga, acompañamiento coordinado con autoridades policiales y militares, protocolos de gestión del riesgo y centro de control con geocercas satelitales en tiempo real.',
+    description: 'Evalúa las situaciones de riesgo y planifica las actuaciones destinadas a minimizar dichos peligros, con un equipo de profesionales y técnicos con gran experiencia en monitoreo y seguimiento de vehículos y sistemas de posicionamiento global.',
     departments: [
       {
         name: 'Dirección de Seguridad',
-        role: 'Coordinación con la Policía Nacional, Ejército y redes de apoyo vial.',
-        focus: 'Planes de seguridad física para caravanas en corredores de alta criticidad.'
+        role: 'Evalúa las situaciones de riesgo y planifica las actuaciones destinadas a minimizar dichos peligros; supervisa y propone las medidas y los sistemas de seguridad más adecuados.',
+        focus: 'Coordina la colaboración de los servicios de seguridad a su cargo con las Fuerzas y Cuerpos de Seguridad.'
       },
       {
         name: 'Dirección de Operaciones',
-        role: 'Ejecución táctica de planes de viaje, pernocte seguro y paradas autorizadas.',
-        focus: 'Planes de contingencia ante bloqueos viales, clima o imprevistos técnicos.'
+        role: 'Se encarga del desarrollo, ejecución y mantenimiento de los proyectos.',
+        focus: 'Equipo conformado por profesionales y técnicos con gran experiencia en monitoreo y seguimiento de vehículos y sistemas de posicionamiento global.'
       },
       {
-        name: 'Centro de Monitoreo GPS y Telemetría',
+        name: 'Monitoreo GPS',
         role: 'Control satelital permanente con sensores de puerta, combustible y velocidad.',
         focus: 'Activación de botón de pánico, apagado remoto de motor y geocercas dinámicas.'
       }
@@ -95,10 +95,10 @@ export const DIVISIONS = [
     shortName: 'Proyectos & I+D',
     leadTitle: 'Estudios de Ingeniería, Innovación Tecnológica y Gestión Ambiental HSEQ',
     image: '/assets/aistudio/imagen_8b182caa.png',
-    description: 'Desarrollo de proyectos estructurales complejos, cálculo de puentes, hangares, movimiento masivo de tierras y planes de manejo ambiental para obras civiles y desmantelamiento industrial.',
+    description: 'Es responsable en general de los proyectos desde las diferentes etapas como lo son: estudio, diseño, innovación y desarrollo y ejecución de los mismos. Por la complejidad del área cuenta con el apoyo logístico y técnico para el desarrollo de cada una de las etapas de los diferentes proyectos.',
     departments: [
       {
-        name: 'Estudio, Diseño e Innovación',
+        name: 'Proyectos e Investigación',
         role: 'Cálculo estructural con software de elementos finitos y modelado BIM.',
         focus: 'Diseño de hangares metálicos, puentes vehiculares y cimentaciones profundas.'
       },
@@ -108,7 +108,7 @@ export const DIVISIONS = [
         focus: 'Planes HSEQ para reciclaje naval de acero y tratamiento de aguas de sentina.'
       },
       {
-        name: 'Desarrollo y Sistemas',
+        name: 'Coordinación Desarrollo y Sistemas',
         role: 'Automatización de procesos administrativos, telemetría y software interno.',
         focus: 'Plataforma administrativa digital de trazabilidad operativa.'
       }
@@ -130,18 +130,18 @@ export const DIVISIONS = [
     departments: [
       {
         name: 'Dirección Financiera',
-        role: 'Planeación presupuestal, tesorería corporativa y líneas de crédito.',
-        focus: 'Gestión cambiaria para alianzas internacionales en EE.UU., Panamá y Europa.'
+        role: 'Es responsable de la planificación, ejecución e información financiera, manteniendo y mejorando la calidad de los procedimientos y protocolos en la empresa.',
+        focus: 'Estrategias para asegurar un eficiente aprovechamiento de los recursos económicos, analizando los resultados operacionales y de gestión.'
       },
       {
-        name: 'Dirección de Recursos Humanos',
-        role: 'Capacitación HSEQ continua, selección de operadores certificados.',
-        focus: 'Bienestar del personal operativo, descansos reglamentarios y salud ocupacional.'
+        name: 'Dirección Recursos Humanos',
+        role: 'Alinear las estrategias de la organización con la búsqueda del bienestar de todos y cada uno de los empleados.',
+        focus: 'Brindar la mejor calidad de vida para ellos y sus familias.'
       },
       {
         name: 'Dirección Jurídica',
-        role: 'Asesoría en contratos de transporte, licitaciones de obra civil y normatividad marítima.',
-        focus: 'Blindaje contractual y cumplimiento ante Superintendencia de Puertos y Transporte.'
+        role: 'Proporciona asesoría técnica-jurídica a las diferentes áreas de la compañía, promoviendo los principios de igualdad y respeto entre los empleados.',
+        focus: 'Reglamentación acorde a los estatutos laborales de nuestro país, para que COESPSA sea un ejemplo para las empresas del sector.'
       }
     ],
     features: [
@@ -162,7 +162,7 @@ export const ENGINEERING_LINES = [
     secondaryImages: [
       '/assets/aistudio/imagen_8b182caa.png'
     ],
-    summary: 'Construcción de viaductos, puentes vehiculares de acero y concreto, naves industriales tipo hangar, bodegas logísticas y explanaciones masivas con maquinaria pesada de última generación.',
+    summary: 'Para COESPSA la planificación del ambiente urbano y rural está basado en el desarrollo y bienestar del ser humano, no olvidando el impacto de este en el medio ambiente.',
     capabilities: [
       'Puentes atirantados y vigas postensadas de gran luz para pasos cordilleranos',
       'Hangares aeroportuarios e industriales con estructuras metálicas de alta resistencia',
@@ -198,7 +198,7 @@ export const ENGINEERING_LINES = [
     secondaryImages: [
       '/assets/aistudio/imagen_5e9efe17.png'
     ],
-    summary: 'Pioneros en Colombia en la técnica de reciclaje ecológico y desguace controlado de embarcaciones mayores (remolcadores, barcazas, buques de carga), cumpliendo los lineamientos del Convenio de Hong Kong para el reciclaje seguro y ambientalmente racional de buques.',
+    summary: 'COESPSA ha sido pionera en el proceso de desarmar la estructura obsoleta de una embarcación y comercializarla en otras economías, a pesar de ser un proceso difícil debido a la complejidad estructural de los navíos y los muchos temas que tratan del impacto ambiental. COESPSA ha logrado ser un ejemplo en gestión ambiental a nivel mundial, conservando altos estándares de productividad.',
     capabilities: [
       'Desmantelamiento estructural con oxicorte técnico, corte con plasma y cizallas hidráulicas',
       'Recuperación, clasificación y valorización de aceros navales de alta graduación',
@@ -359,82 +359,52 @@ export const INITIAL_FLEET_DATA: FleetUnit[] = [
 
 export const ORGANIGRAM_NODES: OrganigramNode[] = [
   {
-    id: 'aga',
-    title: 'Asamblea General de Accionistas',
-    subtitle: 'Máximo Órgano de Dirección Corporativa',
-    department: 'Gobernanza',
-    level: 1,
-    description: 'Máxima autoridad societaria encargada de definir el direccionamiento estratégico, aprobar estados financieros y designar la Junta Directiva.',
-    functions: ['Aprobación de balances anuales', 'Estrategia de expansión y fusiones', 'Nombramiento de revisoría fiscal']
-  },
-  {
-    id: 'jd',
-    title: 'Junta Directiva',
-    subtitle: 'Estrategia, Inversiones y Gobierno Corporativo',
-    department: 'Gobernanza',
-    level: 2,
-    parentId: 'aga',
-    description: 'Órgano colegiado que supervisa la ejecución presupuestal, alianzas internacionales con holdings y políticas de expansión.',
-    functions: ['Evaluación de proyectos de alta envergadura', 'Aprobación de inversiones en maquinaria', 'Control de gestión corporativa']
-  },
-  {
     id: 'gg',
-    title: 'Gerencia General',
-    subtitle: 'Representación Legal y Dirección Ejecutiva',
+    title: 'Gerente General',
+    subtitle: 'Dirección Ejecutiva',
     department: 'Dirección Ejecutiva',
-    level: 2,
-    parentId: 'jd',
-    description: 'Responsable de la dirección operativa, administrativa y comercial de COESPSA C.I. S.A.S. a nivel nacional e internacional.',
-    functions: ['Representación legal y firma de convenios', 'Articulación de las 4 gerencias principales', 'Relaciones institucionales de alto nivel']
+    level: 1,
+    description: 'COESPSA C.I. S.A.S. está definida por una estructura formal, de carácter piramidal, que permite comunicación tanto ascendente como descendente para lograr mejores resultados.',
+    functions: ['Gerencia Desarrollo Proyectos e Investigación', 'Gerencia Técnica y Transporte', 'Gerencia Seguridad y Operaciones', 'Gerencia Administrativa y Financiera']
   },
   {
-    id: 'rf',
-    title: 'Revisoría Fiscal & Asesoría Jurídica Externa',
-    subtitle: 'Auditoría Independiente y Control Estatutario',
-    department: 'Control & Cumplimiento',
-    level: 3,
+    id: 'gpi',
+    title: 'Gerencia Desarrollo Proyectos e Investigación',
+    subtitle: 'Proyectos e Investigación',
+    department: 'Ingeniería & Proyectos',
+    level: 2,
     parentId: 'gg',
-    description: 'Vigila el estricto cumplimiento legal, tributario, aduanero y societario conforme a las leyes colombianas e internacionales.',
-    functions: ['Auditoría tributaria y estados financieros', 'Supervisión de operaciones de comercio exterior (C.I.)', 'Blindaje legal de licitaciones']
+    description: 'Es responsable en general de los proyectos desde las diferentes etapas como lo son: estudio, diseño, innovación y desarrollo y ejecución de los mismos.',
+    functions: ['Proyectos e Investigación', 'Dirección de Medio Ambiente', 'Coordinación Desarrollo y Sistemas']
   },
   {
     id: 'gt',
     title: 'Gerencia Técnica y Transporte',
-    subtitle: 'Dirección de Flota, Talleres y Logística',
-    department: 'Operaciones de Transporte',
-    level: 3,
+    subtitle: 'Tráfico, Carga, Patios y Talleres',
+    department: 'Técnica & Transporte',
+    level: 2,
     parentId: 'gg',
-    description: 'Supervisa el parque automotor pesado, tolvas, cisternas, camabajas y talleres de mantenimiento preventivo y correctivo.',
-    functions: ['Programación de flota y despachos', 'Mantenimiento mecánico y peritaje', 'Control de pesaje y cumplimiento vial']
+    description: 'Encargada de la planeación y la logística de los diferentes proyectos y de los procesos inherentes a la movilización de transporte pesado.',
+    functions: ['Dirección Tráfico y Carga', 'Coordinación Patios y Talleres']
   },
   {
     id: 'gso',
-    title: 'Gerencia de Seguridad y Operaciones',
-    subtitle: 'Custodia, Operaciones de Ruta y Telemetría GPS 24/7',
-    department: 'Seguridad Integral',
-    level: 3,
+    title: 'Gerencia Seguridad y Operaciones',
+    subtitle: 'Seguridad, Operaciones y Monitoreo GPS',
+    department: 'Seguridad & Operaciones',
+    level: 2,
     parentId: 'gg',
-    description: 'Asegura la custodia de las cargas, enlace con fuerzas armadas, escoltas viales y monitoreo satelital en tiempo real.',
-    functions: ['Coordinación con Policía de Carreteras y Ejército', 'Monitoreo de telemetría y geocercas satelitales', 'Gestión de riesgos en carretera y planes de emergencia']
-  },
-  {
-    id: 'gpi',
-    title: 'Gerencia de Desarrollo de Proyectos e Inv.',
-    subtitle: 'Estudio, Diseño Estructural, BIM y Medio Ambiente',
-    department: 'Ingeniería & Proyectos',
-    level: 3,
-    parentId: 'gg',
-    description: 'Lidera los cálculos estructurales para puentes y hangares, planes de manejo ambiental y la línea de desguace y reciclaje naval.',
-    functions: ['Diseño estructural de puentes y hangares', 'Planes de contingencia y sostenibilidad HSEQ', 'Ingeniería aplicada al desguace naval de buques']
+    description: 'Evalúa las situaciones de riesgo, planifica las actuaciones para minimizarlas y se encarga del desarrollo, ejecución y mantenimiento de los proyectos.',
+    functions: ['Dirección de Seguridad', 'Dirección de Operaciones', 'Monitoreo GPS']
   },
   {
     id: 'gaf',
     title: 'Gerencia Administrativa y Financiera',
-    subtitle: 'Tesorería, Talento Humano y Asesoría Jurídica',
-    department: 'Administración Central',
-    level: 3,
+    subtitle: 'Financiera, Recursos Humanos y Jurídica',
+    department: 'Administración & Finanzas',
+    level: 2,
     parentId: 'gg',
-    description: 'Gestiona los recursos de capital, facturación de comercio exterior, nómina de personal y asesoría contractual de licitaciones.',
-    functions: ['Tesorería corporativa y comercio exterior C.I.', 'Selección y capacitación de operadores pesados', 'Gestión documental y contractual']
+    description: 'Planificación, ejecución e información financiera, bienestar de los empleados y asesoría técnica-jurídica a las diferentes áreas de la compañía.',
+    functions: ['Dirección Financiera', 'Dirección Recursos Humanos', 'Dirección Jurídica']
   }
 ];

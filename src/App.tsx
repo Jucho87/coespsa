@@ -16,6 +16,8 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ImageModal } from './components/ImageModal';
 import { ScrollIndicator, useReveal } from './components/ScrollIndicator';
+import { CookieBanner } from './components/CookieBanner';
+import { WhatsAppButton } from './components/WhatsAppButton';
 import { ContactSubmission } from './types';
 
 export default function App() {
@@ -113,6 +115,8 @@ export default function App() {
       </main>
 
       <ScrollIndicator />
+      <WhatsAppButton />
+      <CookieBanner />
 
       {/* Corporate Footer */}
       <Footer onNavigateTo={handleNavigateTo} />

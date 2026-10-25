@@ -24,7 +24,8 @@ if (!$email || !$nombre || !$mensaje) {
     echo json_encode(['ok'=>false,'error'=>'Campos requeridos faltantes']);
     exit;
 }
-$to      = 'asistente@grupocoespsa.com'; // Buzón de Servicio al Cliente (cambiar si aplica)
+if (!empty($_POST['website'] ?? '')) { echo json_encode(['ok' => true]); exit; }
+$to      = 'servicioalclientecoespsa@gmail.com'; // Buzón de Servicio al Cliente (cambiar si aplica)
 $subject = '=?UTF-8?B?' . base64_encode("Solicitud de Contacto [$radicado] - $nombre") . '?=';
 $body    = "Radicado: $radicado\nNombre: $nombre\nEmpresa: $empresa\nNIT/Documento: $documento\nEmail: $email\nTeléfono: $telefono\nCiudad: $ciudad\nGerencia: $gerencia\nServicio: $servicio\n\nMensaje:\n$mensaje";
 $headers = "From: noreply@grupocoespsa.com\r\nReply-To: $email\r\nContent-Type: text/plain; charset=UTF-8\r\nX-Mailer: PHP";

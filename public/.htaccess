@@ -1,3 +1,4 @@
+ErrorDocument 404 /404.html
 # Apache configuration for cPanel (public_html)
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -20,8 +21,8 @@
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
 </IfModule>
 
 # Security Headers
@@ -29,4 +30,15 @@
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+<IfModule mod_gzip.c>
+  mod_gzip_on Yes
+  mod_gzip_item_include mime ^text/.*
+  mod_gzip_item_include mime ^application/(javascript|json|xml)$
 </IfModule>

@@ -208,7 +208,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTo }) => {
         <div className="mt-8">
           <iframe
             title="Ubicación COESPSA"
-            src="https://maps.google.com/maps?q=Barranquilla,Colombia&z=13&output=embed"
+            src="https://maps.google.com/maps?q=Bogot%C3%A1,Colombia&z=13&output=embed"
             width="100%"
             height="200"
             style={{ border: 0 }}

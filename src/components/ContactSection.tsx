@@ -82,6 +82,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     const radicadoNum = `RAD-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
     const body = new FormData();
     body.append('radicado', radicadoNum);
+    body.append('website', (e.currentTarget as HTMLFormElement).querySelector<HTMLInputElement>('input[name="website"]')?.value ?? '');
     body.append('nombre', formData.contactPerson);
     body.append('empresa', formData.companyName);
     body.append('documento', formData.documentId);
@@ -168,7 +169,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       href="tel:5715402267" 
                       className="text-slate-950 font-black text-lg sm:text-xl tracking-tight hover:text-blue-600 transition-colors block mt-0.5"
                     >
-                      (571) 540 2267
+                      (571) 5402267
                     </a>
                   </div>
                 </div>
@@ -186,7 +187,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       href="tel:5715407200" 
                       className="text-slate-950 font-black text-lg sm:text-xl tracking-tight hover:text-blue-600 transition-colors block mt-0.5"
                     >
-                      (571) 540 7200
+                      (571) 5407200
                     </a>
                   </div>
                 </div>
@@ -201,10 +202,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       Servicio al Cliente & Cotizaciones
                     </span>
                     <a 
-                      href="mailto:asistente@grupocoespsa.com" 
+                      href="mailto:servicioalclientecoespsa@gmail.com" 
                       className="text-blue-600 font-bold text-sm sm:text-base hover:underline block mt-0.5 break-all"
                     >
-                      asistente@grupocoespsa.com
+                      servicioalclientecoespsa@gmail.com
                     </a>
                   </div>
                 </div>
@@ -219,10 +220,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       Gerencia General
                     </span>
                     <a 
-                      href="mailto:iltpdirector@grupocoespsa.com" 
+                      href="mailto:coespsagerencia-1963@hotmail.com" 
                       className="text-slate-900 font-bold text-sm sm:text-base hover:underline block mt-0.5 break-all"
                     >
-                      iltpdirector@grupocoespsa.com
+                      coespsagerencia-1963@hotmail.com
                     </a>
                   </div>
                 </div>
@@ -305,6 +306,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 onSubmit={handleSubmit}
                 className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-md space-y-5"
               >
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
                 <div>
                   <h3 className="text-xl font-bold text-slate-950 mb-1 font-heading">
                     Formulario Oficial de Requerimientos Corporativos
