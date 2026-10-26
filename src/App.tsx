@@ -18,6 +18,7 @@ import { ImageModal } from './components/ImageModal';
 import { ScrollIndicator, useReveal } from './components/ScrollIndicator';
 import { CookieBanner } from './components/CookieBanner';
 import { WhatsAppButton } from './components/WhatsAppButton';
+import { BackToTop } from './components/BackToTop';
 import { ContactSubmission } from './types';
 
 export default function App() {
@@ -116,6 +117,7 @@ export default function App() {
 
       <ScrollIndicator />
       <WhatsAppButton />
+      <BackToTop />
       <CookieBanner />
 
       {/* Corporate Footer */}

@@ -87,7 +87,7 @@ export const AboutCompany: React.FC<AboutCompanyProps> = ({ onOpenImage }) => {
         {activeTab === 'mision_vision' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-in fade-in duration-300">
             {/* Mission Card */}
-            <div className="lg:col-span-6 p-8 rounded-2xl bg-gradient-to-br from-white to-blue-50/50 border border-slate-200 shadow-md relative overflow-hidden group hover:border-blue-400 transition-all">
+            <div className="lg:col-span-6 p-8 panel-solid panel-violet relative overflow-hidden group hover:border-blue-400 transition-all">
               <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-6">
                 <Target className="w-6 h-6" />
               </div>
@@ -114,7 +114,7 @@ export const AboutCompany: React.FC<AboutCompanyProps> = ({ onOpenImage }) => {
             </div>
 
             {/* Vision Card */}
-            <div className="lg:col-span-6 p-8 rounded-2xl bg-gradient-to-br from-white to-sky-50/50 border border-slate-200 shadow-md relative overflow-hidden group hover:border-sky-400 transition-all">
+            <div className="lg:col-span-6 p-8 panel-solid panel-blue relative overflow-hidden group hover:border-sky-400 transition-all">
               <div className="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-6">
                 <Compass className="w-6 h-6" />
               </div>

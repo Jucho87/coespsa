@@ -52,11 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateTo }) => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-md py-2.5' 
-        : 'bg-white/90 backdrop-blur-sm border-b border-slate-200/60 py-3.5'
-    }`}>
+    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 site-nav bg-white border-b border-slate-200 ${scrolled ? 'shadow-sm' : ''}`}>
       {/* Top corporate info bar */}
       <div className="hidden lg:flex items-center justify-between max-w-7xl mx-auto px-6 pb-2 mb-1 border-b border-slate-100 text-xs text-slate-600 font-medium">
         <div className="flex items-center gap-6">
@@ -119,7 +115,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateTo }) => {
         </button>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-1">
+        <nav className="hidden xl:flex flex-1 justify-center items-center gap-1 whitespace-nowrap">
           {navLinks.map((link) => (
             <button
               key={link.label}
@@ -127,8 +123,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateTo }) => {
               aria-current={activeSection === link.href ? 'true' : undefined}
               className={`px-3 py-1.5 text-sm rounded-lg transition-colors hover:bg-slate-100 ${
                 activeSection === link.href
-                  ? 'text-blue-600 font-bold border-b-2 border-blue-600 rounded-b-none'
-                  : 'font-semibold text-slate-700 hover:text-blue-700'
+                  ? 'nav-active font-semibold'
+                  : 'font-medium text-[#252B33] hover:text-[#6610F2]'
               }`}
             >
               {link.label}

@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTo }) => {
   };
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-800 text-slate-300 text-xs">
+    <footer className="site-footer text-white text-xs">
       {/* Top Banner */}
       <div className="border-b border-slate-800/80 bg-slate-950/60 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">

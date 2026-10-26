@@ -23,8 +23,8 @@ export const Hero: React.FC<HeroProps> = ({
   onNavigateTo
 }) => {
   return (
-    <section id="inicio" className="relative pt-32 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-slate-900 bg-[url('/assets/curated/transport_fleet.jpg')] bg-cover bg-center border-b border-slate-200">
-      <div className="absolute inset-0 bg-slate-900/60 pointer-events-none" />
+    <section id="inicio" className="hero relative pt-32 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-slate-900 bg-[url('/assets/curated/transport_fleet.jpg')] bg-cover bg-center border-b border-slate-200">
+      <div className="absolute inset-0 hero-overlay pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Badges */}
@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="flex flex-wrap items-center gap-4 mb-10">
               <button
                 onClick={() => onNavigateTo('contacto')}
-                className="flex items-center gap-2.5 px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl shadow-lg shadow-blue-500/25 transition-all hover:-translate-y-0.5"
+                className="flex items-center gap-2.5 px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm btn-outline transition-all hover:-translate-y-0.5"
               >
                 <span>Solicitar Cotización de Proyecto</span>
                 <ArrowRight className="w-4 h-4" />
@@ -72,7 +72,7 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={() => onNavigateTo('gerencias')}
-                className="flex items-center gap-2 px-5 py-3.5 bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm rounded-xl border border-slate-300 shadow-xs hover:border-slate-400 transition-all"
+                className="flex items-center gap-2 px-5 py-3.5 bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm btn-outline hover:border-slate-400 transition-all"
               >
                 <span>Conocer las 4 Gerencias</span>
                 <ChevronRight className="w-4 h-4 text-slate-400" />
@@ -80,7 +80,7 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={() => onNavigateTo('operaciones')}
-                className="flex items-center gap-2 px-4 py-3.5 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs uppercase tracking-wide rounded-xl border border-blue-200 transition-all"
+                className="flex items-center gap-2 px-4 py-3.5 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs uppercase tracking-wide btn-outline"
               >
                 <span>Ver Flota & Operaciones</span>
               </button>
@@ -244,6 +244,9 @@ export const Hero: React.FC<HeroProps> = ({
           ))}
         </div>
       </div>
+      <a href="#empresa" aria-label="Bajar a la siguiente sección" className="hero-chevron absolute bottom-4 left-1/2 -translate-x-1/2 text-white">
+        <svg viewBox="0 0 24 24" className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+      </a>
     </section>
   );
 };

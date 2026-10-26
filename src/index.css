@@ -1,16 +1,25 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --color-primary: #2C2664;
+  --color-blue: #063882;
+  --color-accent: #6610F2;
+  --color-bg-alt: #F4F5F5;
+  --color-text: #4C4D4D;
+  --color-dark: #252B33;
+}
+
 @layer base {
   html {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
     scroll-behavior: smooth;
-    background-color: #f8fafc;
-    color: #0f172a;
+    background-color: #fff;
+    color: var(--color-text);
   }
   html.dark { background-color: #0f172a; color: #f1f5f9; }
   h1, h2, h3, .font-heading {
-    font-family: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Poppins', system-ui, sans-serif;
   }
 }
 
@@ -34,3 +43,48 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* ===== Rediseño estilo referencia ===== */
+body { font-family: 'Poppins', system-ui, sans-serif; }
+.site-nav { height: 70px; display: flex; flex-direction: column; justify-content: center; padding: 0 !important; backdrop-filter: none !important; }
+.site-nav > div:first-child.lg\:flex { display: none !important; }
+.nav-active { color: var(--color-accent) !important; }
+
+.hero { min-height: 100vh; display: flex; align-items: center; border: 0 !important; }
+.hero-overlay { background: linear-gradient(90deg, rgba(28,18,10,.82) 0%, rgba(40,26,14,.6) 55%, rgba(30,20,12,.35) 100%); }
+.hero h1 { text-transform: uppercase; font-weight: 800; letter-spacing: -.01em; }
+.btn-outline { background: transparent !important; color: #fff !important; border: 1.5px solid #fff !important; border-radius: 2px !important; box-shadow: none !important; text-transform: uppercase; letter-spacing: .06em; }
+.btn-outline:hover { background: #fff !important; color: var(--color-primary) !important; transform: none !important; }
+.hero-chevron { animation: bob 2s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translate(-50%, 6px); } }
+
+/* Secciones: fondos alternos, padding amplio, títulos en mayúsculas */
+main, #root { counter-reset: sec; }
+section[id]:not(#inicio) { padding-top: 6rem !important; padding-bottom: 6rem !important; border: 0 !important; counter-increment: sec; overflow: hidden; }
+#empresa, #ingenieria, #organigrama, #contacto { background: #fff !important; }
+#gerencias, #operaciones, #alianzas { background: var(--color-bg-alt) !important; }
+section[id]:not(#inicio)::before { content: "0" counter(sec); position: absolute; top: 1.5rem; right: 2rem; font: 900 clamp(5rem, 12vw, 10rem)/1 'Poppins', sans-serif; color: #E0E0E0; pointer-events: none; z-index: 0; }
+section[id]:not(#inicio) > * { position: relative; z-index: 1; }
+section[id] h2 { text-transform: uppercase; font-weight: 800; color: var(--color-primary); letter-spacing: -.01em; }
+section[id]:not(#inicio) p:not([class*="text-"]) { color: var(--color-text); }
+
+/* Cards: radio 18-20px, sin sombras pesadas */
+#gerencias .rounded-2xl, #ingenieria .rounded-2xl, #operaciones .rounded-2xl,
+#gerencias .rounded-xl, #ingenieria .rounded-xl, #operaciones .rounded-xl { border-radius: 18px !important; }
+#gerencias [class*="shadow-"], #ingenieria [class*="shadow-"], #operaciones [class*="shadow-"] { box-shadow: none !important; }
+#gerencias img, #ingenieria img, #operaciones img { object-fit: cover; }
+
+/* Paneles misión / visión */
+.panel-solid { border-radius: 20px; border: 0; color: #fff; position: relative; overflow: hidden; }
+.panel-violet { background: var(--color-primary); }
+.panel-blue { background: linear-gradient(rgba(6,56,130,.88), rgba(6,56,130,.88)), url('/assets/curated/transport_fleet.jpg') center/cover; }
+.panel-solid h3, .panel-solid p, .panel-solid span, .panel-solid strong { color: #fff !important; }
+.panel-solid > div:first-child { background: rgba(255,255,255,.15) !important; color: #fff !important; }
+.panel-solid .border-t { border-color: rgba(255,255,255,.25) !important; }
+.panel-solid svg { color: #fff !important; }
+
+/* Footer sólido violeta */
+.site-footer { background: var(--color-primary) !important; }
+.site-footer * { border-color: rgba(255,255,255,.15) !important; }
+.site-footer p, .site-footer span, .site-footer a, .site-footer li, .site-footer h3, .site-footer h4 { color: #fff !important; }
+.site-footer [class*="bg-slate-9"] { background: rgba(0,0,0,.15) !important; }
